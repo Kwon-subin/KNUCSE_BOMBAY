@@ -11,86 +11,9 @@ db.once('open', function() {
 });
 mongoose.connect("mongodb+srv://subin:qls1256@bombay.gcd0b.mongodb.net/bombay?retryWrites=true&w=majority");
 
-/* Create a profile */
-exports.create = function(req, res) {
-
-  /* Instantiate a Person */
-  var profile = new Profile(req.body);
- 
-  /* Then save the profile */
-  profile.save(function(err) {
-    if(err) {
-      console.log(err);
-      res.status(404).send(err);
-    } else {
-      res.json(profile);
-    }
-  });
-};
-
-/* Show the current profile */
-exports.read = function(req, res) {
-  /* send back the profile as json from the request */
-  res.json(req.profile);
-};
-
-/* Update a profile */
-exports.update = function(req, res) {
-
-  var profile = new Profile();
-  profile.name = req.body.name;
-  profile.email= req.body.email;
-  profile.password = req.body.password;
-  profile.departmen = req.body.departmen;
-  profile.phone = req.body.phone;
-  profile.gender = req.body.gender;
-  profile.grade = req.body.grade;
-  profile.age = req.body.age;
-  profile.address = req.body.address;
-
-  profile.save(function(err) {
-      if(err) {
-        console.log(err);
-        res.status(404).send(err);
-      } else {
-        res.status(200).send('success');
-      }
-  });
-
-};
-
-/* Delete a profile */
-exports.delete = function(req, res) {
-  var profile = req.profile;
-  profile.remove(function(err) {
-    if(err) {
-      res.status(404).send(err);
-    }
-    else {
-      res.end();
-    }
-  })
-};
-
-/* Retreive all the directory profiles, sorted alphabetically by profile code */
-exports.list = function(req, res) {
-  Profile.find({}, null, {sort: {code: 1}}, function(err, obj){
-    res.json(obj);
-  });
-};    
-
-exports.listingByID = function(req, res, next, id) {
-  Profile.findById(id).exec(function(err, profile) {
-    if(err) {
-      res.status(404).send(err);
-    } else {
-      req.profile = profile;
-      next();
-    }
-  });
-};
 
 exports.sensortiveIn = function(req, res, id, _priority, _m_department, _m_age, _m_gender) {
+app.post('/')
   try {
     db.Profile.updateOne({_id : id}, { $addToSet: {"isMentor" : _isMentor}} );
     db.Profile.updateOne({_id : id}, { $addToSet: {"priority" : _priority}} );

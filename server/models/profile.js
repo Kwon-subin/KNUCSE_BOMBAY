@@ -14,7 +14,7 @@ var profileSchema = new Schema({
   age : 'number', //default 값이 있음
   address : {type: 'string', default: "Daegu"}, // 출신지역 
   isMentor : {type: 'boolean', default: false},//T : 멘토, F: 멘티 
-  priority : {type: 'boolean', default: "study"}, // T :study, F: school life
+  priority : {type: 'boolean', default: true}, // T :study, F: school life
   m_department : {type: 'boolean', default: true}, // T: 같은 과, F : 타과
   m_age : {type: 'boolean', default: true}, // t: 불편 f: 상관없음
   m_gender : {type: 'boolean', default: true}, // t: 동성 f: 상관없음
