@@ -82,49 +82,17 @@ exports.listingByID = function(req, res, next, id) {
   });
 };
 
-
-
-exports.sensortiveIn = function(req, res, id, _isMentor, _priority, _m_department, _m_age, _m_gender) {
-  await profile.findByIdAndUpdate(id, {"isMentor" : _isMentor}, function(err, docs){
-    if (err){
-    console.log(err)
-    }
-    else{
-      console.log("Updated User : ", docs);
-    }
-  });
-  await Profile.findByIdAndUpdate(id, {"priority" : _priority}, function(err, docs){
-    if (err){
-      console.log(err)
-      }
-      else{
-        console.log("Updated User : ", docs);
-      }
-  });
-  await Profile.findByIdAndUpdate(id, {"m_department" : _m_department}, function(err, docs){
-    if (err){
-      console.log(err)
-      }
-      else{
-        console.log("Updated User : ", docs);
-      }
-  });
-  await Profile.findByIdAndUpdate(id, {"m_age" : _m_age}, function(err, docs){
-    if (err){
-      console.log(err)
-      }
-      else{
-        console.log("Updated User : ", docs);
-      }
-  });
-  await Profile.findByIdAndUpdate(id, {"m_gende" : _m_gende}, function(err, docs){
-    if (err){
-      console.log(err)
-      }
-      else{
-        console.log("Updated User : ", docs);
-      }
-  });
+exports.sensortiveIn = function(req, res, id, _priority, _m_department, _m_age, _m_gender) {
+  try {
+    db.Profile.updateOne({_id : id}, { $addToSet: {"isMentor" : _isMentor}} );
+    db.Profile.updateOne({_id : id}, { $addToSet: {"priority" : _priority}} );
+    db.Profile.updateOne({_id : id}, { $addToSet: {"m_department" : _m_department}} );
+    db.Profile.updateOne({_id : id}, { $addToSet: {"m_age" : _m_age}} );
+    db.Profile.updateOne({_id : id}, { $addToSet: {"m_gender" : _m_gender}} );
+    return res.send(true);
+} catch (e) {
+    return res.send(false);
+}
 };
 
 exports.whoIsMyMentor = function(req, res, mentor) {
