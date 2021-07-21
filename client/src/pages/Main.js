@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 function Main({ history }) {
     return (
         <>
-            <Header button_text='로그인' where='/login'></Header>
+            <Header history={history}></Header>
             <Carousel>
                 <Carousel.Item>
                     <img

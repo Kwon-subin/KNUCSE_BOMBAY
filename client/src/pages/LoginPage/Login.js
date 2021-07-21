@@ -6,6 +6,7 @@ import './login.css'
 import { message, Form, Input, Button } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 
+import storeSession from '../../components/storeSession';
 import Header from '../../components/Header';
 
 function Login({history}) {
@@ -32,7 +33,9 @@ function Login({history}) {
       ).then(function (res) {
         if (res.data) {
           message.info('로그인 성공!');
+          storeSession.session = res.data
           history.replace('/')
+          
         } else {
           alert('아이디나 비밀번호가 잘못되었습니다.')
         }

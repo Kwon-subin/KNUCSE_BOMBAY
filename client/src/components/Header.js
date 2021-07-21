@@ -1,12 +1,31 @@
 import React from 'react';
+import axios from 'axios';
 
-import {Navbar, Nav, Container} from 'react-bootstrap';
+import { message } from 'antd';
+import { Navbar, Nav, Container} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './header.css'
 import Title from '../img/Title.png'
+import storeSession from './storeSession';
 
-const Header = ({is_logged_in}) => {
+function Header({history}){
+  let is_logged_in=false;
+  if(storeSession.session) is_logged_in = true
+
+  const goLogout = () => {
+    axios.get('/user/logout'
+    ).then(function (res) {
+      if (res.data) {
+        message.info('로그아웃 완료');
+        storeSession.session = {}
+        history.push('/')
+      } else {
+        alert('왠진 모르지만 로그아웃이 실패함')
+      }
+    })
+  }
+  
     return (
     <Navbar bg="light" variant="light" style={{zIndex:200,position:'sticky', top:'0px'}}>
     <Container style={{display:'unset'}}>
@@ -17,15 +36,14 @@ const Header = ({is_logged_in}) => {
         <Nav.Link href="speedmatch">Speedy</Nav.Link>
         <Nav.Link href="/notice">Notice</Nav.Link>
       </div>
-      <div className={!is_logged_in ? "hiddenComp" : "shownComp"}>
+      <div className={is_logged_in ? "hiddenComp" : "shownComp"}>
         <Nav.Link href="/login">Login</Nav.Link>
         <Nav.Link href="/register">Register</Nav.Link>
       </div>
-      <div className={is_logged_in ? "hiddenComp" : "shownComp"}>
+      <div className={!is_logged_in ? "hiddenComp" : "shownComp"}>
         <Nav.Link href="/mypage">My Page</Nav.Link>
-        <Nav.Link href="/logout">Logout</Nav.Link>
+        <Nav.Link onClick={goLogout}>Logout</Nav.Link>
       </div>
-
     </Nav>
     </Container>
   </Navbar>
