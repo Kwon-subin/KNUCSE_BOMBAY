@@ -1,7 +1,15 @@
 
 /* Dependencies */
-var mongoose = require('mongoose'),
-    Profile = require('../models/match.js');//값 가져옴
+
+  var mongoose = require('mongoose'),
+  Profile = require('../models/match.js');//값 가져옴
+
+const db = mongoose.connection;
+db.on('error', console.error);
+db.once('open', function() {
+    console.log("Connected to mongod server");
+});
+mongoose.connect("mongodb+srv://subin:qls1256@bombay.gcd0b.mongodb.net/bombay?retryWrites=true&w=majority");
 
 /* Create a profile */
 exports.create = function(req, res) {
@@ -129,7 +137,7 @@ function checkMatches (A, B) {//A=mentee B=mentor
 	return D;
 }
 
-exports.match = function(req, res) {
+const match = async function(req, res) {
 //isMentor,priority,m_department, m_age, m_gender
   var matchresult = {
     mento : '',
