@@ -1,7 +1,7 @@
 
 /* Dependencies */
 var mongoose = require('mongoose'),
-    Profile = require('../models/signUp.js');//값 가져옴
+    Profile = require('../models/match.js');//값 가져옴
 
 /* Create a profile */
 exports.create = function(req, res) {
