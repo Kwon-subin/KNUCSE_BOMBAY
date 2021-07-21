@@ -1,0 +1,7 @@
+.hiddenComp{
+    display: none;
+}
+
+.shownComp{
+    display: flex;
+}

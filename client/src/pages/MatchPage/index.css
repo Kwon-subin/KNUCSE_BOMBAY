@@ -1,0 +1,19 @@
+.submitTitle{
+    font-weight: bolder;
+    font-size: 35px;
+}
+
+submitwrapper{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.question{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
