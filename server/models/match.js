@@ -24,7 +24,7 @@ var profileSchema = new Schema({
   m_gender : {type: 'boolean', default: true}, // t: 동성 f: 상관없음
 
   whoIsMentor : 'string',
-  whoIsMentee : [{type: 'string'}],
+  whoIsMentee : ["mentor1","mentor2","mentor3"],
   created_at: Date,
   updated_at: Date
 });
