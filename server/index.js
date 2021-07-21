@@ -1,6 +1,9 @@
 var express = require('express');
+const expressSession = require('express-session')
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const { AutoEncryptionLoggerLevel } = require('mongodb');
-var router = expresee.Router();
+const { Profile } = require("./models/profile")
 var mongoose = require('mongoose');
 
 const app = express();
@@ -9,28 +12,65 @@ db.on('error', console.error);
 db.once('open', function() {
     console.log("Connected to mongod server");
 });
-mongoose.connect("mongodb+srv://subin:qls1256@bombay.gcd0b.mongodb.net/bombay?retryWrites=true&w=majority");
+mongoose.connect("mongodb+srv://subin:qls1256@bombay.gcd0b.mongodb.net/bombay?retryWrites=true&w=majority", {
+    useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false
+});
+
+app.use(expressSession({
+    resave: true,
+    saveUninitialized: true,
+    secret:'keyboard cat'
+}))
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(cookieParser());
+
+app.listen(5000, () => console.log('listen on port 5000...'));
+
+app.get('/user/logout', (req, res) => {
+    delete req.session
+    return res.send(true)
+})
 
 //로그인
-app.post('/login', async (req, res) => {
+app.post('/user/login', async (req, res) => {
     const info = {
-        email = res.body.email,
-        password = res.body.password
+        email : req.body.email,
+        password : req.body.password
     }
+    console.log(info)
+    console.log()
 
-    if (!db.getCollection('Profile').find({"email" : info.email, "password": info.password})){
+    let user = await(await(Profile.findOne({"email" : info.email, "password": info.password})))
+    if (!user){
         return res.send(false);
     };
     
-    const query = db.getCollection('Profile').find({"email" : info.email});
+    req.session.uid = user._id
+    req.session.isMentor = user.isMentor
 
-    req.session.account = {
-        isMentor: query.isMentor,
-        uid: query._id,
-    }
-
-    return res.send(true);
+    return res.send(req.session);
 })
+
+app.post('/user/register', (req, res) => {
+
+    //회원 가입 할떄 필요한 정보들을  client에서 가져오면 
+    //그것들을  데이터 베이스에 넣어준다. 
+    const user = new Profile(req.body)
+  
+    let isuser = await(await(Profile.findOne({"email" : info.email})))
+    if (!isuser){
+        return res.send(false);
+    };
+    
+    Profile.create(req.body, (err, user) =>{
+        if(err){
+            console.log(err)
+            return res.status(400).json()
+        }
+        return res.status(200).json()
+    })
+  })
 
 //로그아웃 - 세션만료
 app.get('/logout', (req, res) => {
