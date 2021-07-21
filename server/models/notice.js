@@ -4,7 +4,6 @@ var mongoose = require('mongoose'),
 
 /* Create your schema */
 var notice = new Schema({
-    Nid : mongoose.Schema.Types.ObjectId,
   title: 'string',
   content: 'string',
   created_at: Date,
