@@ -7,18 +7,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './header.css'
 import Title from '../img/Title.png'
-import storeSession from './storeSession';
 
 function Header({history}){
+  let store = window.localStorage.getItem("uid")
   let is_logged_in=false;
-  if(storeSession.session) is_logged_in = true
-
+  if(store) {
+    console.log('1 : '+store)
+    is_logged_in = true
+  }
   const goLogout = () => {
     axios.get('/user/logout'
     ).then(function (res) {
       if (res.data) {
         message.info('로그아웃 완료');
-        storeSession.session = {}
+        window.localStorage.clear()
         history.push('/')
       } else {
         alert('왠진 모르지만 로그아웃이 실패함')

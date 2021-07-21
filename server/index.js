@@ -33,7 +33,8 @@ app.listen(5000, () => console.log('listen on port 5000...'));
 
 app.get('/user/logout', (req, res) => {
     delete req.session
-    return res.send(true)
+    if(!req.session) res.send(true)
+    else res.send(false)
 })
 
 //로그인
@@ -76,11 +77,6 @@ app.post('/user/register', (req, res) => {
         return res.status(200).json()
     })
   })
-
-//로그아웃 - 세션만료
-app.get('/logout', (req, res) => {
-    delete req.session.account;
-})
 
 // 번개모임 게시판 목록 보여주기
 app.post('/speedmatch', async (req, res) => {

@@ -6,7 +6,6 @@ import './login.css'
 import { message, Form, Input, Button } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 
-import storeSession from '../../components/storeSession';
 import Header from '../../components/Header';
 
 function Login({history}) {
@@ -33,7 +32,8 @@ function Login({history}) {
       ).then(function (res) {
         if (res.data) {
           message.info('로그인 성공!');
-          storeSession.session = res.data
+          window.localStorage.setItem('uid', res.data.uid)
+          window.localStorage.setItem('isMentor', res.data.isMentor)
           history.replace('/')
           
         } else {
