@@ -103,10 +103,6 @@ exports.sensortiveIn = function(req, res, id, _priority, _m_department, _m_age, 
 }
 };
 
-exports.whoIsMyMentor = function(req, res, mentor) {
-
-};
-
 function scoreMatch (A) {
 	var score = 0;
 	// 4개의 요소 가중치 두기//priority,m_department, m_age, m_gender
@@ -230,5 +226,17 @@ const match = async function(req, res) {
     mentor = list[i];
     return mentor;
   }
+};
+
+exports.whoIsMyMentor = async function(re, menteeId) {
+  const posts = await Profile.find({_id :menteeId});
+  return res.send(posts.whoIsMentor);
+
+};
+
+exports.whoIsMyMentee = async function(re, mentorId) {
+  const posts = await Profile.find({_id :mentorId});
+  return res.send(posts.whoIsMentee);
+
 };
 
