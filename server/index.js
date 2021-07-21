@@ -133,5 +133,3 @@ app.post('/notice', async (req, res) => {
     return res.send(query);
 
 })
-
-app.listen(5000);

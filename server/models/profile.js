@@ -40,8 +40,4 @@ profileSchema.pre('save', function(next) {
 const Profile = mongoose.model('Profile', profileSchema);
 
 /* Export the model to make it avaiable to other parts of your Node application */
-<<<<<<< HEAD:server/models/profile.js
 module.exports = { Profile };
-=======
-module.exports = Profile;
->>>>>>> d438bbaad4b552b0fff51a0567e27199d53b1e2b:server/models/match.js
