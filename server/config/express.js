@@ -4,7 +4,7 @@ var path = require('path'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     config = require('./config'),
-    router = require('../routes/server.routes');
+    router = require('../routes/match');
 
 module.exports.init = function() {
   //connect to database
@@ -27,7 +27,7 @@ module.exports.init = function() {
 
   /* 첫 페이지 설정*/
   app.all('/*', function(req, res) {
-    //res.sendFile(path.resolve('client/index.html'));
+    res.sendFile(path.resolve('client/Main.js'));
   });
 
   return app;
