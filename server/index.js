@@ -1,6 +1,6 @@
 var express = require('express');
 const { AutoEncryptionLoggerLevel } = require('mongodb');
-var router = expresee.Router();
+var router = express.Router();
 var mongoose = require('mongoose');
 
 const app = express();
@@ -14,8 +14,8 @@ mongoose.connect("mongodb+srv://subin:qls1256@bombay.gcd0b.mongodb.net/bombay?re
 //로그인
 app.post('/login', async (req, res) => {
     const info = {
-        email = res.body.email,
-        password = res.body.password
+        email : req.body.email,
+        password : req.body.password
     }
 
     if (!db.getCollection('Profile').find({"email" : info.email, "password": info.password})){
@@ -88,3 +88,5 @@ app.post('/notice', async (req, res) => {
     return res.send(query);
 
 })
+
+app.listen(5000);
