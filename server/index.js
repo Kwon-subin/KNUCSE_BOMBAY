@@ -1,10 +1,15 @@
 var express = require('express');
 const session = require('express-session');
 const { AutoEncryptionLoggerLevel } = require('mongodb');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 var router = express.Router();
 var mongoose = require('mongoose');
 
 const app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(cookieParser());
 const db = mongoose.connection;
 db.on('error', console.error);
 db.once('open', function() {
@@ -21,11 +26,11 @@ app.post('/login', async (req, res) => {
         password : req.body.password
     }
 
-    if (!db.getCollection('Profile').find({"email" : info.email, "password": info.password})){
+    if (!db.Profile.find({"email" : info.email, "password": info.password})){
         return res.send(false);
     };
     
-    const query = db.getCollection('Profile').find({"email" : info.email});
+    const query = db.Profile.find({"email" : info.email});
 
     req.session.account = {
         isMentor: query.isMentor,
@@ -71,7 +76,7 @@ app.get('/speedmatch', async (req, res) => {
     const {uid} = req.session.account;
     const Pid = req.body.pid;
     
-    const query = db.getCollection('Post').find({"Pid" : Pid});
+    const query = db.Post.find({"Pid" : Pid});
     
     try {
         db.Post.updateOne({Pid : Pid}, {$set :{"count" : query.count + 1}, $addToSet: {"mentee" : uid}} );
@@ -86,7 +91,7 @@ app.get('/speedmatch', async (req, res) => {
 app.post('/notice', async (req, res) => {
     const Nid = req.body.nid;
 
-    const query = db.getCollection('Notice').find({"Nid" : Nid});
+    const query = db.Notice.find({"Nid" : Nid});
     
     return res.send(query);
 
