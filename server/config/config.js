@@ -1,7 +1,7 @@
 
 module.exports = {
   db: {
-    url = "mongodb+srv://subin:qls1256@bombay.gcd0b.mongodb.net/bombay?retryWrites=true&w=majority"
+    //uri:  //몽고 디비 url
   },
   port: process.env.PORT || 8080
 };

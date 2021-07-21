@@ -27,7 +27,7 @@ module.exports.init = function() {
 
   /* 첫 페이지 설정*/
   app.all('/*', function(req, res) {
-    //res.sendFile(path.resolve('client/index.html'));
+    res.sendFile(path.resolve('client/Main.js'));
   });
 
   return app;
