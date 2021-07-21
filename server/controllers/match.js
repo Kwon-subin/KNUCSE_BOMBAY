@@ -32,21 +32,15 @@ exports.update = function(req, res) {
 
   var profile = new Profile();
   profile.id = req.body.id;
-  profile.name.value = req.body.name.value;
   profile.ethnicity.value = req.body.ethnicity.value;
-  profile.ethnicity.score = req.body.ethnicity.score;
   profile.gender.value = req.body.gender.value;
-  profile.gender.score = req.body.gender.score;
   profile.major.value = req.body.major.value;
-  profile.major.score = req.body.major.score;
   profile.bio = req.body.bio;
   profile.isMentor = req.body.isMentor;
   profile.isMentee = req.body.isMentee;
   profile.language.value = req.body.language.value;
-  profile.language.score = req.body.language.score;
   profile.location.country = req.body.location.country;
   profile.location.city = req.body.location.city;
-  profile.location.score = req.body.location.score;
   
   profile.save(function(err) {
       if(err) {
@@ -98,6 +92,72 @@ exports.listingByID = function(req, res, next, id) {
   });
 };
 
-exports.match = function(req, res) {
+var _pointOfMentoring;
+var _majorOfMentee;
+var _genderOfMentee;
+var _isOld; 
+
+exports.sensortiveIn = function(pointOfMentoring,majorOfMentee,genderOfMentee,isOld) {
+  _pointOfMentoring = pointOfMentoring;
+  _majorOfMentee = majorOfMentee;
+  _genderOfMentee = genderOfMentee;
+  _isOld = isOld;
+
+  _pointOfMentoring.save(function(err) {
+    if(err) {
+      console.log(err);
+      res.status(404).send(err);
+    } else {
+      res.json(_pointOfMentoring);
+    }
+});
+
+  _majorOfMente.save(function(err) {
+    if(err) {
+      console.log(err);
+      res.status(404).send(err);
+    } else {
+      res.json(_majorOfMente);
+    }
+  });
+
+  _genderOfMentee.save(function(err) {
+    if(err) {
+      console.log(err);
+      res.status(404).send(err);
+    } else {
+      res.json(_genderOfMentee);
+    }
+  });
+
+  _isOld.save(function(err) {
+    if(err) {
+      console.log(err);
+      res.status(404).send(err);
+    } else {
+      res.json(_isOld);
+    }
+  });
+
+};
+
+function scoreMatch (A) {
+	var score = 0;
+	// 4개의 요소 가중치 두기(priority,과,나이,성별)
+	var weights = [0, 0, 0, 0];//지금은 동등하게
+
+	for (var i = 0; i < numRows; i++) {
+		for (var j = 0; j < numCols; j++) {
+			score += weights[i]*A[i][j];	
+		}
+	}
+	return score;
+}
+
+exports.match = function(req, res, mentor,mentee) {
+  
 
 }
+
+
+
