@@ -4,7 +4,6 @@ var mongoose = require('mongoose'),
 
 /* Create your schema */
 var post = new Schema({
-    Pid : mongoose.Schema.Types.ObjectId,
   title: 'string',
   content: 'string',
   author: {type: mongoose.Schema.Types.ObjectId, ref:'Profile'},
