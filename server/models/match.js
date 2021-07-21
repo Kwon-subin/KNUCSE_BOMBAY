@@ -4,54 +4,28 @@ var mongoose = require('mongoose'),
 
 /* Create your schema */
 var profileSchema = new Schema({
-  Id: {
-    type: String, 
-    required: true
-  }, 
-  name:{
-    value:String,
-    score:Number
-  },
-  ethnicity:{
-    value:String,
-    score:Number
-  },
-  sexualOrientation:{
-    value:String,
-    score: Number
-  },
-  gender: {
-    value:String,
-    score:Number
-  },
-  Major:{
-    value:String,
-    score:Number
-  },
-  bio:String,
-  isMentor:String,
-  mbti:{
-    value:String,
-    score:Number
-  },
-  interest:{
-    value:String,
-    score:Number
-  },
-  language:{
-    value:String,
-    score:Number
-  },
-  location:{
-    country:String,
-    city:String,
-    score:Number
+  name : 'string',
+  email: 'string',
+  password: 'string',
+  department: 'string',
+  phone: 'string',
+  gender: 'string', 
+  grade : 'string', // 학년
 
-  },
+  age : 'number', //default 값이 있음
+  
+  address : {type: 'string', default: "Daegu"}, // 출신지역 
+  isMentor : {type: 'boolean', default: false},//T : 멘토, F: 멘티 
+  priority : {type: 'string', default: "study"}, // study, school life
+  m_department : {type: 'boolean', default: true}, // T: 같은 과, F : 타과
+  m_age : {type: 'boolean', default: true}, // t: 불편 f: 상관없음
+  m_gender : {type: 'boolean', default: true}, // t: 동성 f: 상관없음
 
   created_at: Date,
   updated_at: Date
 });
+
+export default mongoose.model('profileeSchema', profileSchema);
 
 /* create a 'pre' function that adds the updated_at (and created_at if not already there) property */
 profileSchema.pre('save', function(next) {
