@@ -3,7 +3,7 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 /* Create your schema */
-var post = new Schema({
+var postSchema = new Schema({
   title: 'string',
   content: 'string',
   author: {type: mongoose.Schema.Types.ObjectId, ref:'Profile'},
@@ -14,7 +14,7 @@ var post = new Schema({
 });
 
 /* create a 'pre' function that adds the updated_at (and created_at if not already there) property */
-profileSchema.pre('save', function(next) {
+postSchema.pre('save', function(next) {
   var currentTime = new Date;
   this.updated_at = currentTime;
   if(!this.created_at)
@@ -25,7 +25,7 @@ profileSchema.pre('save', function(next) {
 });
 
 /* Use your schema to instantiate a Mongoose model */
-var Post = mongoose.model('Post', post);
+var Post = mongoose.model('Post', postSchema);
 
 /* Export the model to make it avaiable to other parts of your Node application */
-module.exports = Post;
+module.exports = {Post};

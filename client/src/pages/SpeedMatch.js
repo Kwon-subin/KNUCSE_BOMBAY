@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import { FormOutlined } from '@ant-design/icons';
 import {Button} from 'antd'
+import axios from 'axios';
 
 import './index.css'
 
@@ -9,6 +10,16 @@ import Header from '../components/Header'
 import Cards2 from '../components/Cards2'
 import Footer from '../components/Footer'
 function SpeedMatch() {
+    let posts;
+    axios.get('/user/speedmatch').then(function(res){
+        console.log('start')
+        if(res.status===200){
+            posts = res.data;
+            console.log(posts)
+        }else{
+            posts=[]
+        }
+    })
     return (
         <div style={{backgroundColor:'#F3F3F3'}}>
         <Header where='/login' button_text='로그인'></Header>

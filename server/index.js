@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const { AutoEncryptionLoggerLevel } = require('mongodb');
 const { Profile } = require("./models/profile")
+const {Post} = require("./models/post")
 var router = express.Router();
 var mongoose = require('mongoose');
 
@@ -79,14 +80,17 @@ app.post('/user/register', (req, res) => {
   })
 
 // 번개모임 게시판 목록 보여주기
-app.post('/speedmatch', async (req, res) => {
+app.get('/user/speedmatch', async (req, res) => {
+    console.log('sep')
     const posts = await Post.find({}).sort({"updated_at":1});
 
-    res.render({posts});
+    if(posts) res.status(200)
+    else res.status(400)
+    res.send({posts});
 })
 
 // 번개모임 게시판 글 작성
-app.post('/newPost', async (req, res) => {
+app.post('/user/newPost', async (req, res) => {
 
     const {uid} = req.session.account;
     const title = req.body.title;
@@ -104,7 +108,7 @@ app.post('/newPost', async (req, res) => {
 })
 
 // 번개모임 count 추가
-app.get('/speedmatch', async (req, res) => {
+app.get('/user/speedmatch', async (req, res) => {
     
     const {uid} = req.session.account;
     const Pid = req.body.pid;
@@ -121,7 +125,7 @@ app.get('/speedmatch', async (req, res) => {
 })
 
 //공지사항 더 알아보기
-app.post('/notice', async (req, res) => {
+app.post('/user/notice', async (req, res) => {
     const Nid = req.body.nid;
 
     const query = db.Notice.find({"Nid" : Nid});

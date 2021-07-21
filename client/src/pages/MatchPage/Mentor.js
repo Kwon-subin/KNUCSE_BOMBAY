@@ -3,6 +3,7 @@ import React, {useState} from 'react'
 import './index.css'
 import 'antd/dist/antd.css';
 import { Form, Radio, InputNumber, Button } from 'antd';
+import axios from 'axios';
   const tailFormItemLayout = {
     wrapperCol: {
       xs: {
@@ -20,8 +21,15 @@ const Mentor = () => {
     const [form] = Form.useForm();
     const [state, setState] = useState(true);
 
-    const onFinish = (values) => {
-      console.log('Received values of form: ', values);
+    const onFinish = (body) => {
+        axios.post('/user/matching', body
+        ).then(function(res){
+            if(res.data){
+                alert('성공')
+            }else{
+                alert('실패')
+            }
+        })
     };
     
     function toggle() {
