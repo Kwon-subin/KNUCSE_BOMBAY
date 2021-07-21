@@ -25,8 +25,6 @@ var profileSchema = new Schema({
   updated_at: Date
 });
 
-export default mongoose.model('profileeSchema', profileSchema);
-
 /* create a 'pre' function that adds the updated_at (and created_at if not already there) property */
 profileSchema.pre('save', function(next) {
   var currentTime = new Date;
