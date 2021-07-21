@@ -9,7 +9,6 @@ exports.create = function(req, res) {
   /* Instantiate a Person */
   var profile = new Profile(req.body);
  
-
   /* Then save the profile */
   profile.save(function(err) {
     if(err) {
@@ -50,8 +49,6 @@ exports.update = function(req, res) {
         res.json(profile);
       }
   });
-
-
 };
 
 /* Delete a profile */
@@ -102,44 +99,41 @@ exports.sensortiveIn = function(pointOfMentoring,majorOfMentee,genderOfMentee,is
   _majorOfMentee = majorOfMentee;
   _genderOfMentee = genderOfMentee;
   _isOld = isOld;
-
-  _pointOfMentoring.save(function(err) {
-    if(err) {
-      console.log(err);
-      res.status(404).send(err);
-    } else {
-      res.json(_pointOfMentoring);
-    }
-});
-
-  _majorOfMente.save(function(err) {
-    if(err) {
-      console.log(err);
-      res.status(404).send(err);
-    } else {
-      res.json(_majorOfMente);
-    }
-  });
-
-  _genderOfMentee.save(function(err) {
-    if(err) {
-      console.log(err);
-      res.status(404).send(err);
-    } else {
-      res.json(_genderOfMentee);
-    }
-  });
-
-  _isOld.save(function(err) {
-    if(err) {
-      console.log(err);
-      res.status(404).send(err);
-    } else {
-      res.json(_isOld);
-    }
-  });
-
 };
+
+exports.match = function(req, res, mentee) {
+
+  var numRows = 4;
+  var numCols = 4;
+
+
+ mentee = [1, 0, 1, 1];
+
+  //멘토 리스트
+  var A = [1, 0, 1, 1];
+  var B = [0, 1, 1, 0];
+  var C = [0, 1, 1, 1];
+  var D = [1, 1, 0, 0];
+  var list = [A, B, C, D];
+
+  var matchList = {};
+  var max = 0;
+  var mentorNum = 0;
+  var mentor;
+
+//  Match each Matrix against another matrix
+  for (var i = 0; i < list.length; i++) {
+      var score = scoreMatch(checkMatches(baby, list[i]));
+		  console.log(score);
+      if(score > max)
+      {
+        max = score;
+        mentorNum = i;
+      }
+	  }
+    mentor = list[i];
+    return mentor;
+  };
 
 function scoreMatch (A) {
 	var score = 0;
@@ -154,9 +148,21 @@ function scoreMatch (A) {
 	return score;
 }
 
-exports.match = function(req, res, mentor,mentee) {
-  
-
+function checkMatches (A, B) {//A=mentor B=mentee
+	// initial match matrix
+	var D = [[], [], [], []];
+	//  Loop through the entries to find if there are common entries
+	for (var i = 0; i < numRows; i++) {
+		for (var j = 0; j < numCols; j++) {
+			// Determine if the entries are the same
+			if (A[i][j] + B[i][j] == 2)
+				D[i].push(1);
+			else
+				D[i].push(0);
+		}
+	}
+	// return the match matrix
+	return D;
 }
 
 
