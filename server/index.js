@@ -1,4 +1,5 @@
 var express = require('express');
+const session = require('express-session');
 const { AutoEncryptionLoggerLevel } = require('mongodb');
 var router = express.Router();
 var mongoose = require('mongoose');
@@ -9,7 +10,9 @@ db.on('error', console.error);
 db.once('open', function() {
     console.log("Connected to mongod server");
 });
-mongoose.connect("mongodb+srv://subin:qls1256@bombay.gcd0b.mongodb.net/bombay?retryWrites=true&w=majority");
+mongoose.connect("mongodb+srv://subin:qls1256@bombay.gcd0b.mongodb.net/bombay?retryWrites=true&w=majority", {
+    useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false
+});
 
 //로그인
 app.post('/login', async (req, res) => {
