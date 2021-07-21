@@ -4,7 +4,6 @@ var mongoose = require('mongoose'),
 
 /* Create your schema */
 var profileSchema = new Schema({
-  _id : Schema.Types.ObjectId,
   name : 'string',
   email: 'string',
   password: 'string',
@@ -12,11 +11,8 @@ var profileSchema = new Schema({
   phone: 'string',
   gender: 'string', 
   grade : 'string', // 학년
-
   age : 'number', //default 값이 있음
-  
   address : {type: 'string', default: "Daegu"}, // 출신지역 
-
   isMentor : {type: 'boolean', default: false},//T : 멘토, F: 멘티 
   priority : {type: 'boolean', default: "study"}, // T :study, F: school life
   m_department : {type: 'boolean', default: true}, // T: 같은 과, F : 타과
