@@ -1,10 +1,9 @@
 import React, {useState} from 'react'
-import Axios from 'axios'
-import ReactDOM from 'react-dom';
+import axios from 'axios'
 import 'antd/dist/antd.css';
 import './login.css'
 
-import { Form, Input, Button } from 'antd';
+import { message, Form, Input, Button } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 
 import Header from '../../components/Header';
@@ -19,34 +18,31 @@ function Login({history}) {
     function handlePassword(e) {
         setPassword(e.target.value);
     }
+     
 
-    const handleLogin = (event) => {
-        event.preventDefault();
-        if (!email) {
-        alert('이메일을 입력해주세요');
-        return;
-        }
-        if (!password) {
-        alert('비밀번호를 입력해주세요');
-        return;
-        }
-        event.preventDefault();
-
+    const handleLogin = () => {
+        // event.preventDefault();
+        
         let body = {
             email: email,
             password: password
         }
 
-        Axios.post('/user/login', body
-        ).then(function (res){
-
-        }).catch(function (err){
-
-        });
-    }
-    const onFinish = (values) => {
-        console.log('Received values of form: ', values);
-    };
+      axios.post('/user/login', body
+      ).then(function (res) {
+        if (res.data) {
+          message.info('로그인 성공!');
+          history.replace('/')
+        } else {
+          alert('아이디나 비밀번호가 잘못되었습니다.')
+        }
+      });
+    
+      }
+      const onFinish = (values) => {
+        // console.log('Received values of form: ', values);
+        handleLogin()
+      };
 
     return (
         <>

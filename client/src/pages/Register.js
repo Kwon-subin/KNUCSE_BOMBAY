@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios'
 import 'antd/dist/antd.css';
 // import './index.css';
 import { Form, Input, Cascader, Select, Button } from 'antd';
@@ -71,11 +72,20 @@ const tailFormItemLayout = {
   },
 };
 
-const Register = () => {
+const Register = ({history}) => {
   const [form] = Form.useForm();
 
-  const onFinish = (values) => {
-    console.log('Received values of form: ', values);
+  const onFinish = (body) => {
+  axios.post('/user/register', body
+  ).then(function (res){
+    console.log(res)
+    if(res.status===200){
+      alert('hello')
+      history.replace('/')
+    }else{
+      alert('중복된 email이 존재합니다.')
+    }
+  });
   };
 
   return (

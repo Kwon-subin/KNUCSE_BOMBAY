@@ -3,23 +3,34 @@ import {Link} from 'react-router-dom'
 import { FormOutlined } from '@ant-design/icons';
 import {Button} from 'antd'
 
-import Header from '../components/Header'
-import Cards from '../components/Cards'
+import './index.css'
 
+import Header from '../components/Header'
+import Cards2 from '../components/Cards2'
+import Footer from '../components/Footer'
 function SpeedMatch() {
     return (
-        <>
+        <div style={{backgroundColor:'#F3F3F3'}}>
         <Header where='/login' button_text='로그인'></Header>
+        <div style={{backgroundColor:'#FAEB78', color:'black', padding:'10px 15px'}}>
+            <strong>일일 멘티를 찾습니다!</strong> 
+            <p>다양한 주제로 하루 동안 멘토링 진행!</p>
+            <p>멘토라면 멘티를 구하는 글을 작성하고 멘티라면 다양한 멘토링에 참여 신청을 해 보세요~</p>
+        </div>
         <div>
             <Link to='/newPost'>
                 <Button type="primary" shape="circle" icon={<FormOutlined/>} style={{float:'right', margin:'10px'}} />
             </Link>
         </div>
-        <div className='cardBox' style={{clear:'both'}}>
-        <Cards where='speedy' goto='/login' header='학교투어' title='학교투어하실분' gotext='더알아보기' ></Cards>
+        <div className='smallBox' style={{clear:'both', padding:'20px'}}>
+            <Cards2 btntext='더 알아보기' ></Cards2>
+            <Cards2 btntext='더 알아보기' ></Cards2>
+            <Cards2 btntext='더 알아보기' ></Cards2>
+            <Cards2 btntext='더 알아보기' ></Cards2>
 
         </div>
-        </>
+        <Footer></Footer>
+        </div>
     )
 }
 

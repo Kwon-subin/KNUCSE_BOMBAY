@@ -5,7 +5,7 @@ import { Card, Button } from 'antd';
 function Cards2({btntext}) {
     return (
         <>
-            <Card style={{ width: 300, height:200 }}>
+            <Card style={{ width: 300, height:200, margin:'auto' }}>
                 <p> .</p>
                 <p>. </p>
                 <p>. </p>

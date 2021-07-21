@@ -1,10 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { Carousel } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Header from '../components/Header'
 import Cards2 from '../components/Cards2';
+import Footer from '../components/Footer';
+
+import './index.css'
+import { Link } from 'react-router-dom';
 
 function Main({ history }) {
     return (
@@ -50,18 +54,19 @@ function Main({ history }) {
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
-            <div>
-                <div>학기제 멘토멘티 신청하기 ＞ </div>
+            <div className="main_wrapper">
+                <div className="miniTitle">학기제 멘토멘티 신청하기 ＞ </div>
                 <div className="gird field">
                 <Cards2 btntext='신청하기'></Cards2>
                 </div>
             </div>
-            <div>
-                <div>다양한 멘토를 만나보세요. </div>
+            <div className="main_wrapper">
+                <div className="miniTitle">다양한 멘토를 만나보세요. <Link to='/speedmatch'>＞</Link> </div>
                 <div className="gird field">
-                <Cards2 btntext='더 알아보기'></Cards2>
+                <Cards2></Cards2>
                 </div>
             </div>
+            <Footer></Footer>
         </>
     );
 }

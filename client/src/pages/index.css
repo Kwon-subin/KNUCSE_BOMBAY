@@ -1,0 +1,28 @@
+/* Main */
+.miniTitle{
+    height: 30px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.main_wrapper{
+    margin: 30px 20px;
+}
+
+/* SpeedMatch */
+.smallBox{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 20px;
+}
+
+/* NewPost */
+.labelTitle{
+    color:black;
+    opacity:1;
+    
+}
+
+.newWrapper{
+    width:30px,
+}
