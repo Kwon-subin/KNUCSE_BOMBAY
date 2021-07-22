@@ -3,6 +3,7 @@ import React, {useState} from 'react'
 import './index.css'
 import 'antd/dist/antd.css';
 import { Form, Radio, InputNumber, Button } from 'antd';
+import axios from 'axios';
   const tailFormItemLayout = {
     wrapperCol: {
       xs: {
@@ -20,8 +21,19 @@ const Mentor = () => {
     const [form] = Form.useForm();
     const [state, setState] = useState(true);
 
-    const onFinish = (values) => {
-      console.log('Received values of form: ', values);
+    const onFinish = (body) => {
+        body['uid'] = window.localStorage.getItem('uid')
+        console.log(body)
+        axios.post('/user/matching', body
+
+       
+        ).then(function(res){
+            if(res.data){
+                alert('성공')
+            }else{
+                alert('실패')
+            }
+        })
     };
     
     function toggle() {
@@ -51,7 +63,7 @@ const Mentor = () => {
         scrollToFirstError>
             <div style={{display:"flex", flexDirection:'column'}}>
             <div className="question">
-            어떤 부분에 집중하여 멘토링을 진행하고 싶습니까?
+            어떤 부분에 집중하여 멘토링을 진행하고 싶나요?
             <Form.Item name='focus' >
             <Radio.Group buttonStyle="solid">
                 <Radio.Button value="a">학업적 측면</Radio.Button>
