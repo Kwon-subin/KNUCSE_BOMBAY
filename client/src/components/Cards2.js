@@ -22,7 +22,7 @@ function Cards2({btntext, title, content, num, goto, ids}) {
 
     return (
         <>
-            <Card style={{ width: 300, height:200, margin:'auto' }}>
+            <Card style={{ width: 340, height:200, margin:'auto' }}>
                 <p><strong>{title}</strong> </p>
                 <p>{content} </p>
                 {

@@ -20,6 +20,8 @@ import Servey from './pages/Servey';
 import Chatting from './pages/Chatting';
 
 function App() {
+  const htmlTitle = document.querySelector("title");
+    htmlTitle.innerText = 'Bloom';
   return (
     <Router>
       <Switch>
