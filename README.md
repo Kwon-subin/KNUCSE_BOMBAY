@@ -1,4 +1,4 @@
-# KNUCSE Hackaton
+# KNUCSE Hackathon
 - COVID-19로 변화된 대학 생활을 개선할 수 있는 창의적이고 혁신적인 소프트웨어 자유 개발
 
 ```
