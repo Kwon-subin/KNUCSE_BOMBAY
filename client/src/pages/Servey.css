@@ -1,0 +1,106 @@
+
+html, body{
+    background-color: rgb(250, 250, 250);
+    text-align: center;
+    min-width:300px;
+    font-family: Raleway; 
+  }
+  
+  #title{
+    background:  #ffef10;
+    padding: 20px;
+    color: rgb(0, 0, 0);
+    font-family: Lobster;
+    border-radius: 15px;
+  }
+  
+  #form-outer{
+    width: 70%;
+    margin: 0 auto;
+    max-width: 900px;
+  }
+  
+  .labels {
+    display: inline-block;
+    text-align: right;
+    width:40%;
+    padding:5px;
+    margin-top:10px;
+    vertical-align: top;
+  }
+  
+  .rightTab {
+    display: inline-block;
+    text-align: left;
+    width:45%;
+    vertical-align: middle;
+  }
+  
+  .rowTab{
+    margin: 10px;
+  }
+  
+  
+  #box-inner, fieldset{
+     border: 1px solid rgb(141, 141, 141);
+     box-shadow: 0 10px 40px rgba(219, 219, 219, 0.3); 
+  }
+  
+  #box-inner{
+     margin-top: 30px;
+     margin-bottom: 30px;
+  }
+  
+  .radio, .checkbox{
+    display: block;
+    position: relative;
+    left:-40px;
+    margin-bottom:10px;
+  }
+  
+  ul{
+    list-style: none;
+  }
+  
+  #comments{
+    height:70px; 
+    width:100%;
+    resize:vertical; 
+  }
+  
+  #submit{
+    background-color: #8f8f8f;
+    color: white;
+    font-size:15px;
+    font-family: Lobster;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom:30px;
+    box-shadow: 0 10px 40px rgb(255, 255, 255);
+  }
+  
+  #submit:hover{
+    background-color: #0074b3;
+  }
+  
+  @media (max-width: 550px){
+    .rightTab{
+      float:left;
+      width: 80%;
+    }
+    .labels{
+      text-align:left;
+      width:100%; 
+    }
+    #box-inner{
+      height:400px;  
+    } 
+    #comments{
+      height:30px;
+      width:100%;
+    }
+  }
+  
+  
