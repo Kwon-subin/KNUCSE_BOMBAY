@@ -1,683 +1,106 @@
-/*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
 
-/* Document
-   ========================================================================== */
-
-/**
- * 1. Correct the line height in all browsers.
- * 2. Prevent adjustments of font size after orientation changes in iOS.
- */
-
- 
- html {
-    line-height: 1.15;
-    /* 1 */
-    -webkit-text-size-adjust: 100%;
-    /* 2 */
-  }
-  
-  /* Sections
-     ========================================================================== */
-  
-  /**
-   * Remove the margin in all browsers.
-   */
-  
-  body {
-    margin: 0;
-  }
-  
-  /**
-   * Correct the font size and margin on `h1` elements within `section` and
-   * `article` contexts in Chrome, Firefox, and Safari.
-   */
-  
-  h1 {
-    font-size: 2em;
-    margin: 0.67em 0;
-  }
-  
-  /* Grouping content
-     ========================================================================== */
-  
-  /**
-   * 1. Add the correct box sizing in Firefox.
-   * 2. Show the overflow in Edge and IE.
-   */
-  
-  hr {
-    box-sizing: content-box;
-    /* 1 */
-    height: 0;
-    /* 1 */
-    overflow: visible;
-    /* 2 */
-  }
-  
-  /**
-   * 1. Correct the inheritance and scaling of font size in all browsers.
-   * 2. Correct the odd `em` font sizing in all browsers.
-   */
-  
-  pre {
-    font-family: monospace, monospace;
-    /* 1 */
-    font-size: 1em;
-    /* 2 */
-  }
-  
-  /* Text-level semantics
-     ========================================================================== */
-  
-  /**
-   * Remove the gray background on active links in IE 10.
-   */
-  
-  a {
-    background-color: transparent;
-  }
-  
-  /**
-   * 1. Remove the bottom border in Chrome 57-
-   * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
-   */
-  
-  abbr[title] {
-    border-bottom: none;
-    /* 1 */
-    text-decoration: underline;
-    /* 2 */
-    text-decoration: underline dotted;
-    /* 2 */
-  }
-  
-  /**
-   * Add the correct font weight in Chrome, Edge, and Safari.
-   */
-  
-  b,
-  strong {
-    font-weight: bolder;
-  }
-  
-  /**
-   * 1. Correct the inheritance and scaling of font size in all browsers.
-   * 2. Correct the odd `em` font sizing in all browsers.
-   */
-  
-  code,
-  kbd,
-  samp {
-    font-family: monospace, monospace;
-    /* 1 */
-    font-size: 1em;
-    /* 2 */
-  }
-  
-  /**
-   * Add the correct font size in all browsers.
-   */
-  
-  small {
-    font-size: 80%;
-  }
-  
-  /**
-   * Prevent `sub` and `sup` elements from affecting the line height in
-   * all browsers.
-   */
-  
-  sub,
-  sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
-  }
-  
-  sub {
-    bottom: -0.25em;
-  }
-  
-  sup {
-    top: -0.5em;
-  }
-  
-  /* Embedded content
-     ========================================================================== */
-  
-  /**
-   * Remove the border on images inside links in IE 10.
-   */
-  
-  img {
-    border-style: none;
-  }
-  
-  /* Forms
-     ========================================================================== */
-  
-  /**
-   * 1. Change the font styles in all browsers.
-   * 2. Remove the margin in Firefox and Safari.
-   */
-  
-  button,
-  input,
-  optgroup,
-  select,
-  textarea {
-    font-family: inherit;
-    /* 1 */
-    font-size: 100%;
-    /* 1 */
-    line-height: 1.15;
-    /* 1 */
-    margin: 0;
-    /* 2 */
-  }
-  
-  /**
-   * Show the overflow in IE.
-   * 1. Show the overflow in Edge.
-   */
-  
-  button,
-  input {
-    /* 1 */
-    overflow: visible;
-  }
-  
-  /**
-   * Remove the inheritance of text transform in Edge, Firefox, and IE.
-   * 1. Remove the inheritance of text transform in Firefox.
-   */
-  
-  button,
-  select {
-    /* 1 */
-    text-transform: none;
-  }
-  
-  /**
-   * Correct the inability to style clickable types in iOS and Safari.
-   */
-  
-  button,
-  [type="button"],
-  [type="reset"],
-  [type="submit"] {
-    -webkit-appearance: button;
-  }
-  
-  /**
-   * Remove the inner border and padding in Firefox.
-   */
-  
-  button::-moz-focus-inner,
-  [type="button"]::-moz-focus-inner,
-  [type="reset"]::-moz-focus-inner,
-  [type="submit"]::-moz-focus-inner {
-    border-style: none;
-    padding: 0;
-  }
-  
-  /**
-   * Restore the focus styles unset by the previous rule.
-   */
-  
-  button:-moz-focusring,
-  [type="button"]:-moz-focusring,
-  [type="reset"]:-moz-focusring,
-  [type="submit"]:-moz-focusring {
-    outline: 1px dotted ButtonText;
-  }
-  
-  /**
-   * Correct the padding in Firefox.
-   */
-  
-  fieldset {
-    padding: 0.35em 0.75em 0.625em;
-  }
-  
-  /**
-   * 1. Correct the text wrapping in Edge and IE.
-   * 2. Correct the color inheritance from `fieldset` elements in IE.
-   * 3. Remove the padding so developers are not caught out when they zero out
-   *    `fieldset` elements in all browsers.
-   */
-  
-  legend {
-    box-sizing: border-box;
-    /* 1 */
-    color: inherit;
-    /* 2 */
-    display: table;
-    /* 1 */
-    max-width: 100%;
-    /* 1 */
-    padding: 0;
-    /* 3 */
-    white-space: normal;
-    /* 1 */
-  }
-  
-  /**
-   * Add the correct vertical alignment in Chrome, Firefox, and Opera.
-   */
-  
-  progress {
-    vertical-align: baseline;
-  }
-  
-  /**
-   * Remove the default vertical scrollbar in IE 10+.
-   */
-  
-  textarea {
-    overflow: auto;
-  }
-  
-  /**
-   * 1. Add the correct box sizing in IE 10.
-   * 2. Remove the padding in IE 10.
-   */
-  
-  [type="checkbox"],
-  [type="radio"] {
-    box-sizing: border-box;
-    /* 1 */
-    padding: 0;
-    /* 2 */
-  }
-  
-  /**
-   * Correct the cursor style of increment and decrement buttons in Chrome.
-   */
-  
-  [type="number"]::-webkit-inner-spin-button,
-  [type="number"]::-webkit-outer-spin-button {
-    height: auto;
-  }
-  
-  /**
-   * 1. Correct the odd appearance in Chrome and Safari.
-   * 2. Correct the outline style in Safari.
-   */
-  
-  [type="search"] {
-    -webkit-appearance: textfield;
-    /* 1 */
-    outline-offset: -2px;
-    /* 2 */
-  }
-  
-  /**
-   * Remove the inner padding in Chrome and Safari on macOS.
-   */
-  
-  [type="search"]::-webkit-search-decoration {
-    -webkit-appearance: none;
-  }
-  
-  /**
-   * 1. Correct the inability to style clickable types in iOS and Safari.
-   * 2. Change font properties to `inherit` in Safari.
-   */
-  
-  ::-webkit-file-upload-button {
-    -webkit-appearance: button;
-    /* 1 */
-    font: inherit;
-    /* 2 */
-  }
-  
-  /* Interactive
-     ========================================================================== */
-  
-  /*
-   * Add the correct display in Edge, IE 10+, and Firefox.
-   */
-  
-  details {
-    display: block;
-  }
-  
-  /*
-   * Add the correct display in all browsers.
-   */
-  
-  summary {
-    display: list-item;
-  }
-  
-  /* Misc
-     ========================================================================== */
-  
-  /**
-   * Add the correct display in IE 10+.
-   */
-  
-  template {
-    display: none;
-  }
-  
-  /**
-   * Add the correct display in IE 10.
-   */
-  
-  [hidden] {
-    display: none;
-  }
-  
-  :root {
-    --white: #ffffff;
-    --required: #d90000;
-    --grey: #707070;
-    --light-grey: #d8d8d8;
-    --accent-color: #ff005f;
-    --accent-color-hover: rgba(255, 0, 95, 0.7);
-    --placeholder: rgba(112, 112, 112, 0.54);
-  }
-  
-  *,
-  *::after,
-  *::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
-  }
-  
-  html {
-    font-size: 62.5%;
-  }
-  
-  body {
-    font-family: 'Roboto', sans-serif;
-    box-sizing: border-box;
-    color: var(--grey);
-  }
-  
-  header {
+html, body{
+    background-color: rgb(250, 250, 250);
     text-align: center;
+    min-width:300px;
+    font-family: Raleway; 
   }
   
-  #title {
-    font-size: 7rem;
-    font-weight: 300;
-    margin: 1rem;
+  #title{
+    background:  #ffef10;
+    padding: 20px;
+    color: rgb(0, 0, 0);
+    font-family: Lobster;
+    border-radius: 15px;
   }
   
-  #description {
-    font-size: 2rem;
-    font-weight: 900;
-    color: var(--accent-color);
-  }
-  
-  .form-outer {
-      
-    width: 80%;
-    content: '';
-    clear: both;
-    display: table;
-    margin: 3rem auto 0;
-    padding: 5rem 10rem 10rem 10rem;
-    background-color: var(--white);
-    box-shadow: 0 2px 2.1rem var(--light-grey);
-    text-align: center;
-  }
-  
-  #survey-form {
-    margin: 0 auto;
-    width: 100%;
-  }
-  
-  .form-column {
-    float: left;
-    width: 50%;
-  }
-  
-  label,
-  h3 {
-    display: block;
-    margin-top: 4rem;
-    margin-bottom: 0.7rem;
-    font-weight: 900;
-    font-size: 1.8rem;
-    text-transform: uppercase;
-  }
-  
-  input[type="radio"] {
-    display: none;
-  }
-  
-  .radio-button {
-    display: inline-block;
-    width: 30%;
-  }
-  
-  .radio-button>label {
-    font-weight: 400;
-    margin-top: 0.4rem;
-    text-transform: capitalize;
-    margin: 0;
-    display: inline-block;
-    position: relative;
-    padding-left: 2.5rem;
-  }
-  
-  .radio-button-span {
-    height: 2rem;
-    width: 2rem;
-    border: 3px solid var(--accent-color);
-    border-radius: 50%;
-    display: inline-block;
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-  
-  .radio-button-span::after {
-    content: "";
-    display: block;
-    height: 0.8rem;
-    width: 0.8rem;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: var(--accent-color);
-    opacity: 0;
-    transition: opacity .3s;
-  }
-  
-  input[type="radio"]:checked+label .radio-button-span::after {
-    opacity: 1;
-  }
-  
-  .sport-column {
-    display: inline-block;
-  }
-  
-  .sport-column input[type='checkbox'] {
-    display: none;
-  }
-  
-  .checkbox-text::before {
-    content: '\f0c8';
-    font-family: 'Font Awesome 5 Free';
-    display: inline-block;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    width: 1em;
-    margin: 0 0.8rem;
-    color: var(--accent-color);
-  }
-  
-  input[type='checkbox']:checked+.checkbox-text::before {
-    font-weight: 900;
-    content: '\f14a';
-    animation: pop 180ms ease-in;
-  }
-  
-  .sport-column>label {
-    font-weight: 400;
-    margin-top: 0.4rem;
-    text-transform: capitalize;
-  }
-  
-  input[type='text'],
-  input[type='email'],
-  input[type='number'],
-  select,
-  textarea {
+  #form-outer{
     width: 70%;
-    padding: 0.7rem;
-    font-size: 1.6rem;
-    border: 2px solid var(--light-grey);
+    margin: 0 auto;
+    max-width: 900px;
   }
   
-  input[type='number'] {
-    width: 30%;
+  .labels {
+    display: inline-block;
+    text-align: right;
+    width:40%;
+    padding:5px;
+    margin-top:10px;
+    vertical-align: top;
   }
   
-  input[type='text'],
-  input[type='email'],
-  input[type='number'] {
-    border: none;
-    border-bottom: 2px solid var(--light-grey);
+  .rightTab {
+    display: inline-block;
+    text-align: left;
+    width:45%;
+    vertical-align: middle;
   }
   
-  input[type=text]:focus,
-  input[type='email']:focus,
-  input[type='number']:focus {
-    transition: border 0.8s;
-    outline: none;
-    border: none;
-    border-bottom: 2px solid var(--accent-color);
+  .rowTab{
+    margin: 10px;
   }
   
-  input[type='text']::placeholder,
-  input[type='email']::placeholder,
-  input[type='number']::placeholder,
-  select::placeholder,
-  textarea::placeholder {
-    opacity: 1;
-    color: var(--placeholder);
-    text-transform: uppercase;
-    font-size: 1.2rem;
+  
+  #box-inner, fieldset{
+     border: 1px solid rgb(141, 141, 141);
+     box-shadow: 0 10px 40px rgba(219, 219, 219, 0.3); 
   }
   
-  select,
-  textarea {
-    border-radius: 5px;
-    color: var(--grey);
+  #box-inner{
+     margin-top: 30px;
+     margin-bottom: 30px;
   }
   
-  select:focus,
-  textarea:focus {
-    transition: border 0.8s;
-    outline: none;
-    border: 2px solid var(--accent-color);
-  }
-  
-  .outer-button {
-    text-align: center;
-  }
-  
-  input[type='submit'] {
-    background-color: var(--accent-color);
-    border-radius: 10rem;
-    color: var(--white);
-    font-size: 2.2rem;
-    margin-top: 3rem;
-    padding: 0.7rem;
-    border: none;
-    width: 60%;
-    transition: all 0.3s;
+  .radio, .checkbox{
+    display: block;
     position: relative;
-    top: 0px;
-    left: 0px;
+    left:-40px;
+    margin-bottom:10px;
   }
   
-  input[type='submit']:hover {
-    background-color: var(--accent-color-hover);
-    box-shadow: 2px 2px 0px var(--white), 4px 4px 0px var(--accent-color-hover), 5px 5px 0px var(--white), 7px 7px 0px var(--accent-color-hover);
-    top: -4px;
-    left: -4px;
+  ul{
+    list-style: none;
   }
   
-  input[type='submit']::after {
-    color: var(--placeholder);
-    top: 4px;
-    left: 4px;
+  #comments{
+    height:70px; 
+    width:100%;
+    resize:vertical; 
   }
   
-  @keyframes pop {
-    0% {
-      transform: scale(0);
-    }
-    90% {
-      transform: scale(1.5);
-    }
-    100% {
-      transform: scale(1);
-    }
+  #submit{
+    background-color: #8f8f8f;
+    color: white;
+    font-size:15px;
+    font-family: Lobster;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom:30px;
+    box-shadow: 0 10px 40px rgb(255, 255, 255);
   }
   
-  @media (max-width: 800px) {
-    .radio-button {
-      display: block;
-      margin: 0.7rem 0;
-    }
-    input[type='text'],
-    input[type='email'],
-    input[type='number'],
-    select,
-    textarea {
-      width: 90%;
-    }
-    input[type='number'] {
-      width: 40%;
-    }
+  #submit:hover{
+    background-color: #0074b3;
   }
   
-  @media (max-width: 750px) {
-    .form-column {
-      width: 100%;
+  @media (max-width: 550px){
+    .rightTab{
+      float:left;
+      width: 80%;
+    }
+    .labels{
+      text-align:left;
+      width:100%; 
+    }
+    #box-inner{
+      height:400px;  
+    } 
+    #comments{
+      height:30px;
+      width:100%;
     }
   }
   
-  @media (max-width: 550px) {
-    input[type='text'],
-    input[type='email'],
-    input[type='number'],
-    select,
-    textarea {
-      width: 100%;
-    }
-    input[type='number'] {
-      width: 60%;
-    }
-    .form-outer {
-      width: 90%;
-      padding: 5rem 5rem 10rem 5rem;
-    }
-  }
   
-  @media (max-width: 420px) {
-    #title {
-      font-size: 5rem;
-    }
-  }
-  
-  @media (max-width: 360px) {
-    .form-outer {
-      width: 90%;
-      padding: 4rem 3rem 7rem 3rem;
-    }
-  }
