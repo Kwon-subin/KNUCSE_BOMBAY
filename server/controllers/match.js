@@ -1,6 +1,5 @@
 
 /* Dependencies */
-<<<<<<< HEAD
 
   var mongoose = require('mongoose'),
   Profile = require('../models/match.js');//값 가져옴
@@ -25,7 +24,7 @@ app.post('/')
 } catch (e) {
     return res.send(false);
 }
-=======
+
 var mongoose = require('mongoose'),
     Profile = require('../models/match.js');//값 가져옴
 
@@ -92,7 +91,7 @@ exports.delete = function(req, res) {
 
 /* Retreive all the directory profiles, sorted alphabetically by profile code */
 exports.list = function(req, res) {
-  Profile.find({}, null, {sort: {code: 1}}, function(err, obj){
+  Profile.find({}, null, {sort: {code: 1}}, function(_err, obj){
     res.json(obj);
   });
 };    
@@ -153,10 +152,7 @@ exports.sensortiveIn = function(req, res, id, _isMentor, _priority, _m_departmen
   });
 };
 
-exports.whoIsMyMentor = function(req, res, mentor) {
 
->>>>>>> 4e174d733bfd320f2f076f66980fd550eb899098
-};
 
 function scoreMatch (A) {
 	var score = 0;
@@ -188,11 +184,13 @@ function checkMatches (A, B) {//A=mentee B=mentor
 	return D;
 }
 
-<<<<<<< HEAD
+
 const match = async function(req, res) {
-=======
+
 exports.match = function(req, res) {
->>>>>>> 4e174d733bfd320f2f076f66980fd550eb899098
+
+exports.match = function(req, res) {
+
 //isMentor,priority,m_department, m_age, m_gender
   var matchresult = {
     mento : '',
@@ -287,18 +285,4 @@ exports.match = function(req, res) {
   }
 };
 
-<<<<<<< HEAD
-exports.whoIsMyMentor = async function(re, menteeId) {
-  const posts = await Profile.find({_id :menteeId});
-  return res.send(posts.whoIsMentor);
 
-};
-
-exports.whoIsMyMentee = async function(re, mentorId) {
-  const posts = await Profile.find({_id :mentorId});
-  return res.send(posts.whoIsMentee);
-
-};
-
-=======
->>>>>>> 4e174d733bfd320f2f076f66980fd550eb899098

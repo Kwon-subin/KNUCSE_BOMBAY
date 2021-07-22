@@ -7,11 +7,11 @@ var profileSchema = new Schema({
   name : 'string',
   email: 'string',
   password: 'string',
-  department: 'string',
+  department: ['string'],
   phone: 'string',
   gender: 'string', 
-  grade : 'string', // 학년
-  age : 'number', //default 값이 있음
+  grade : 'number', // 학년
+  age : {type: 'number', default: "20"}, //default 값이 있음
   address : {type: 'string', default: "Daegu"}, // 출신지역 
   isMentor : {type: 'boolean', default: false},//T : 멘토, F: 멘티 
   priority : {type: 'boolean', default: true}, // T :study, F: school life
@@ -19,8 +19,8 @@ var profileSchema = new Schema({
   m_age : {type: 'boolean', default: true}, // t: 불편 f: 상관없음
   m_gender : {type: 'boolean', default: true}, // t: 동성 f: 상관없음
 
-  whoIsMentor : 'string',
-  whoIsMentee : ["mentor1","mentor2","mentor3"],
+  whoIsMentor : {type: 'string', default: "Node"},
+  whoIsMentee : ['string'],
   created_at: Date,
   updated_at: Date
 });

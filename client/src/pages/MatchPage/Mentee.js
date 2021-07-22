@@ -92,7 +92,7 @@ const Mentee = () => {
             <Form.Item name='isAge'>
             <Radio.Group defaultValue="a" buttonStyle="solid">
                 <Radio.Button value="a" onClick={toggle}>상관 없음</Radio.Button>
-                <Radio.Button value="b" onClick={toggle}>내 나이 이하(나이 입력)</Radio.Button>
+                <Radio.Button value="b" onClick={toggle}>내 나이 이상(나이 입력)</Radio.Button>
             </Radio.Group>
             </Form.Item>
             <Form.Item name='age'>

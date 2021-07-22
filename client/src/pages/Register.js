@@ -31,10 +31,8 @@ const residences = [
     value: 'F',
     label: 'IT대학',
     children: [
-      {value: 'computer',label: '컴퓨터학부', children:[
-          {value : 'comp', label : '심화컴퓨터전공'},
-          {value : 'glos', label : '글로벌SW융합전공'},
-      ]},
+      {value: 'morecomputer',label: '심화컴퓨터전공',},
+      {value: 'littlecomputer',label: '글로벌SW융합전공',},
       {value: 'eletronic',label: '전자공학부',},
       {value: 'mobie',label: '모바일공학과',},
     ],
@@ -160,7 +158,7 @@ const Register = ({history}) => {
       </Form.Item>
 
       <Form.Item
-        name="Name"
+        name="name"
         label="Name(실명 사용)"
         tooltip="실명을 사용해주세요"
         rules={[
@@ -175,7 +173,7 @@ const Register = ({history}) => {
       </Form.Item>
 
       <Form.Item
-        name="residence"
+        name="department"
         label="소속 학과"
         rules={[
           {
@@ -204,6 +202,21 @@ const Register = ({history}) => {
           }}
         />
       </Form.Item>
+
+      <Form.Item
+        name="grade"
+        label="Grade(학년)"
+        tooltip="학년을 입력하세요"
+        rules={[
+          {
+            required: true,
+            message: 'Please input your name!',
+            whitespace: true,
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>    
 
       <Form.Item
         name="gender"
