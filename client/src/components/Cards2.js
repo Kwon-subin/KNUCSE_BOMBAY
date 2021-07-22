@@ -6,7 +6,10 @@ import { Card, Button } from 'antd';
 function Cards2({btntext, title, content, num, goto, ids}) {
     function buttonOn(){
         if(goto==='/user/speed'){
-            
+            if(window.localStorage.getItem('isMentor')==='true'){
+                alert('멘토는 신청이 불가능합니다.')
+                return
+            }
             if(!window.confirm('신청하시겠습니까?')) return;
             const url = '/user/speedmatch'
             let body = {

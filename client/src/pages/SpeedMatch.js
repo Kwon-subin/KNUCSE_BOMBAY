@@ -28,7 +28,7 @@ function SpeedMatch({history}) {
             <p>멘토라면 멘티를 구하는 글을 작성하고 멘티라면 다양한 멘토링에 참여 신청을 해 보세요~</p>
         </div>
         {
-            ismentor ? (
+            (ismentor === 'true') ? (
             <div>
                 <Link to='/newPost'>
                     <Button type="primary" shape="circle" icon={<FormOutlined/>} style={{float:'right', margin:'10px'}} />
