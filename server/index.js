@@ -363,7 +363,7 @@ app.post('/user/matchingResult', async (req, res) => {
       //var A = [0,0,0,0]; 이러한 형태들로 이루어 질 것임.
       //var list = [A, B, C, D];
       //var matchList = {};
-    
+     const posts = await Profile.find({});
       
       var menteeTotalNum = 0;
       var mentorTotalNum = 0;
