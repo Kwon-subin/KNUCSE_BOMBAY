@@ -1,7 +1,6 @@
 
 html, body{
     background-color: rgb(250, 250, 250);
-    text-align: center;
     min-width:300px;
     font-family: Raleway; 
   }
@@ -12,6 +11,7 @@ html, body{
     color: rgb(0, 0, 0);
     font-family: Lobster;
     border-radius: 15px;
+    text-align: center;
   }
   
   #form-outer{
@@ -38,17 +38,20 @@ html, body{
   
   .rowTab{
     margin: 10px;
+
   }
   
   
   #box-inner, fieldset{
      border: 1px solid rgb(141, 141, 141);
      box-shadow: 0 10px 40px rgba(219, 219, 219, 0.3); 
+     text-align: center;
   }
   
   #box-inner{
      margin-top: 30px;
      margin-bottom: 30px;
+
   }
   
   .radio, .checkbox{
@@ -60,6 +63,7 @@ html, body{
   
   ul{
     list-style: none;
+
   }
   
   #comments{
@@ -79,6 +83,7 @@ html, body{
     cursor: pointer;
     margin-bottom:30px;
     box-shadow: 0 10px 40px rgb(255, 255, 255);
+    text-align: center;
   }
   
   #submit:hover{
