@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 
 import Test from './pages/Test'
-
+import Test2 from './pages/Test2'
 import Main from './pages/Main'
 import Login from './pages/LoginPage/Login';
 import Register from './pages/Register'
@@ -27,6 +27,7 @@ function App() {
     <Router>
       <Switch>
         <Route path='/test' component={Test} exact/>
+        <Route path='/test2' component={Test2} exact/>
         <Route path='/' component={Main} exact/>
         <Route path='/notice' component={Notice} exact/>
         <Route path='/match' component={Matching} exact/>

@@ -71,7 +71,7 @@ const Mentee = ({history}) => {
             <div style={{display:"flex", flexDirection:'column'}}>
             <div className="question">
 
-            어떤 부분에 집중하여 멘토링을 받고 싶습니까?
+            어떤 부분에 집중하여 멘토링을 받고 싶나요?
 
             <Form.Item name='focus' >
             <Radio.Group buttonStyle="solid">
