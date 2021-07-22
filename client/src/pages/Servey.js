@@ -77,10 +77,10 @@ function Servey({history}) {
                             </div>
                         <div class="rightTab">
                     <textarea id="comments" name="comment" placeholder="Write something.." ></textarea>  
-                    </div>
-                    </div>
-                    </div>
                         <button id="submit" type="submit">Submit</button>        
+                    </div>
+                    </div>
+                    </div>
                     </div>
                     
             <Footer></Footer>
