@@ -2,8 +2,10 @@ import React, {useState} from 'react'
 
 import './index.css'
 import 'antd/dist/antd.css';
-import { Form, Radio, InputNumber, Button } from 'antd';
+import { Form, Radio, InputNumber, Button, Input } from 'antd';
 import axios from 'axios';
+import Header from '../../components/Header'
+
   const tailFormItemLayout = {
     wrapperCol: {
       xs: {
@@ -17,7 +19,7 @@ import axios from 'axios';
     },
 };
   
-const Mentee = () => {
+const Mentee = ({history}) => {
     const [form] = Form.useForm();
     const [state, setState] = useState(true);
 
@@ -42,6 +44,8 @@ const Mentee = () => {
     }
             
     return (
+        <>
+        <Header history={history}></Header>
         <submitwrapper>
         <div className="submitTitle">
 
@@ -112,6 +116,9 @@ const Mentee = () => {
             <InputNumber min={19} disabled={state} defaultValue={20} />
             </Form.Item>
             </div>
+            추가적으로 멘토링 받고 싶은 내용이나 궁금한점이 있다면 작성해주세요
+            <Input placeholder="요청사항" allowClear />
+            <div style={{height:'10px'}}> </div>
             <Form.Item {...tailFormItemLayout}>
             <Button type="primary" htmlType="submit">
             제출하기
@@ -121,6 +128,7 @@ const Mentee = () => {
         </Form>
         
         </submitwrapper>
+        </>
     )
 }
 

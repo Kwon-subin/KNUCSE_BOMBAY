@@ -8,10 +8,10 @@ import 'antd/dist/antd.css';
 import { Popover, Button } from 'antd';
 import { NotificationOutlined } from '@ant-design/icons';
 
-function Chatting() {
+function Chatting({history}) {
     return (
         <div>
-            <Header></Header>
+            <Header history={history}></Header>
             <div>
                 <Popover className='chattingbot' placement="leftTop" title='오늘의 추천 주제!' content='오늘은 당신의 고교생활에 대하여 대화를 나눠보는건 어떨까요?' trigger="click">
                     <Button><NotificationOutlined /></Button>

@@ -6,7 +6,7 @@ import { Card, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 
-function Cards({where, goto, header, title, text, gotext, btnclass}) {
+function Cards({where, goto, header, title, text, gotext, gotext2, btnclass}) {
     return (
         <>
             <Card style={{
@@ -21,6 +21,14 @@ function Cards({where, goto, header, title, text, gotext, btnclass}) {
                         {text}
                     </Card.Text>
                     <Button variant="primary" className={btnclass}><Link to={goto} style={{color:'white'}}>{gotext}</Link></Button>
+                    {
+                        (gotext2)&&(
+                            <>
+                            <span> </span>
+                            <Button variant="primary" className={btnclass}><Link to='/test' style={{color:'white'}}>매칭 확인하기</Link></Button>
+                            </>
+                        )
+                    }
                 </Card.Body>
             </Card>
         </>

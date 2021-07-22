@@ -95,3 +95,21 @@
 .inputbox > button{
     background-color: rgb(125, 229, 255);
 }
+
+/* test */
+.testWrapper{
+    margin:25px;
+    text-align: center;
+    min-height: 558px;
+}
+
+.testTitle{
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.testSub{
+    font-size: 16px;
+    padding-top:10px;
+    padding-bottom: 30px;
+}
