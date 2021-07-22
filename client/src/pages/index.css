@@ -9,11 +9,18 @@
     margin: 30px 20px;
 }
 
+.girdfield{
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 249, 168, 0.301);
+    margin:10px -20px;
+}
+
 /* SpeedMatch */
-.smallBox{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    row-gap: 20px;
+.ant-card-body:hover{
+    display: hidden;
 }
 
 /* NewPost */
@@ -25,4 +32,66 @@
 
 .newWrapper{
     width:30px,
+}
+
+/* chatting */
+.chattingbot{
+    width: 50px;
+    position:fixed;
+    right:10px;
+    top:70px;
+    background-color: none;
+    border:none;
+}
+
+.chattingbox{
+    height: 565px;
+    background-color: rgb(255, 247, 204);
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-end;
+}
+
+.mychat{
+    display: flex;
+    justify-content: flex-end;
+}
+.otherchat{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.chatbox{
+    margin : 5px 10px;
+    border-radius: 10px;
+    padding: 8px;
+    max-width: 50%;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.mychat > .chatbox{
+    background-color: rgb(119, 217, 255);
+}
+
+.otherchat > .chatbox{
+    background-color: rgb(255, 255, 255);
+}
+
+.inputbox{
+    background-color: rgb(255, 247, 204);
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+
+.inputbox > input{
+    width: 90%;
+    margin-right: 5px;
+    border:none;
+}
+
+.inputbox > button{
+    background-color: rgb(125, 229, 255);
 }

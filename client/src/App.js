@@ -17,8 +17,12 @@ import Mentee from './pages/MatchPage/Mentee';
 import Mypage from './pages/Mypage';
 import Notice from './pages/Notice';
 import NewPost from './pages/newPost';
+import Servey from './pages/Servey';
+import Chatting from './pages/Chatting';
 
 function App() {
+  const htmlTitle = document.querySelector("title");
+    htmlTitle.innerText = 'Bloom';
   return (
     <Router>
       <Switch>
@@ -31,6 +35,8 @@ function App() {
         <Route path='/newPost' component={NewPost} exact/>
         <Route path='/speedmatch' component={SpeedMatch} exact/>
         <Route path='/mypage' component={Mypage} exact/>
+        <Route path='/servey' component={Servey} exact/>
+        <Route path='/chatting' component={Chatting} exact/>
         <Route path='/login' component={Login} exact/>
         <Route path='/register' component={Register}/>
       </Switch>
