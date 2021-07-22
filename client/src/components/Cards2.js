@@ -25,10 +25,15 @@ function Cards2({btntext, title, content, num, goto, ids}) {
             <Card style={{ width: 300, height:200, margin:'auto' }}>
                 <p><strong>{title}</strong> </p>
                 <p>{content} </p>
-                <p>참여 신청 인원 : {num} </p>
+                {
+                    (num !== undefined) && (
+                        <p>참여 신청 인원 : {num} </p>
+                    )
+                }
+                
                 <Button type="primary" shape="round" size={'large'} onClick={buttonOn}>
-          {btntext}
-        </Button>
+                {btntext}
+                </Button>
             </Card>
         </>
     )

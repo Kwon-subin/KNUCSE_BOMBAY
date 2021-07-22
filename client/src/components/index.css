@@ -1,0 +1,15 @@
+/* cards */
+.btnclass2:hover{
+    background-color: rgb(126, 167, 44);
+}
+.btnclass2{
+    background-color: yellowgreen;
+    border: none;
+}
+.btnclass3:hover{
+    background-color: rgb(82, 80, 80);
+}
+.btnclass3{
+    background-color: gray;
+    border: none;
+}

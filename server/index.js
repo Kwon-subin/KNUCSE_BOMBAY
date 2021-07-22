@@ -146,3 +146,13 @@ app.post('/user/notice', async (req, res) => {
     return res.send(query);
 
 })
+
+app.post('/user/mypage', async (req, res) => {
+    const user = (await Profile.findById(req.body.uid))
+    console.log(user)
+    u = {
+        name : user.name,
+        isMentor : user.isMentor
+    }
+    return res.send(u)
+})

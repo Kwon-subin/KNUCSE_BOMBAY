@@ -12,7 +12,7 @@ import Footer from '../components/Footer'
 
 function SpeedMatch() {
     const [data, setData] = useState([])
-   
+    let ismentor = window.localStorage.getItem('isMentor')
     useEffect(() => {
         axios
           .get('/user/speedmatch')
@@ -27,16 +27,21 @@ function SpeedMatch() {
             <p>다양한 주제로 하루 동안 멘토링 진행!</p>
             <p>멘토라면 멘티를 구하는 글을 작성하고 멘티라면 다양한 멘토링에 참여 신청을 해 보세요~</p>
         </div>
-        <div>
-            <Link to='/newPost'>
-                <Button type="primary" shape="circle" icon={<FormOutlined/>} style={{float:'right', margin:'10px'}} />
-            </Link>
-        </div>
+        {
+            (ismentor === true) && (
+            <div>
+                <Link to='/newPost'>
+                    <Button type="primary" shape="circle" icon={<FormOutlined/>} style={{float:'right', margin:'10px'}} />
+                </Link>
+            </div>
+            )
+        }
         <div className='smallBox' style={{clear:'both', padding:'20px'}}>
             {data.map((item)=>(
                 <Cards2 title={item.title} content={item.content} num={item.count} btntext='참여하기' goto='/user/speed' ids={item._id}></Cards2>
             ))}
         </div>
+        
         <Footer></Footer>
         </div>
     )

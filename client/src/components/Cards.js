@@ -1,10 +1,12 @@
 import React from 'react'
 
+import './index.css'
+
 import { Card, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 
-function Cards({where, goto, header, title, text, gotext}) {
+function Cards({where, goto, header, title, text, gotext, btnclass}) {
     return (
         <>
             <Card style={{
@@ -18,7 +20,7 @@ function Cards({where, goto, header, title, text, gotext}) {
                     <Card.Text>
                         {text}
                     </Card.Text>
-                    <Button variant="primary"><Link to={goto} style={{color:'white'}}>{gotext}</Link></Button>
+                    <Button variant="primary" className={btnclass}><Link to={goto} style={{color:'white'}}>{gotext}</Link></Button>
                 </Card.Body>
             </Card>
         </>
