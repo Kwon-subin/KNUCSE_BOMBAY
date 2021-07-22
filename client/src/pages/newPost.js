@@ -38,7 +38,7 @@ function NewPost({history}) {
         };
     return (
         <>
-            <Header></Header>
+            <Header history={history}></Header>
             <div>
                 <div style={{
                     backgroundColor:'rgb(255, 235, 90, 0.2)',

@@ -9,7 +9,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer';
 import SkeletonInput from 'antd/lib/skeleton/Input';
 
-function Mypage() {
+function Mypage({history}) {
     const body = {
         uid : window.localStorage.getItem('uid')
     }
@@ -25,7 +25,7 @@ function Mypage() {
     
     return (
         <div style={{backgroundColor:'#F3F3F3'}}>
-        <Header></Header>
+        <Header history={history}></Header>
         <div>
             <div>
                     <Card style={{borderRadius:'10px', width: '90%', margin:'20px auto' }}>

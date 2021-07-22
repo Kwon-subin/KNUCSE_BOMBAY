@@ -5,10 +5,10 @@ import Footer from '../components/Footer'
 import './Servey.css';
 
 
-function Servey() {
+function Servey({history}) {
     return (
         <div>
-            <Header></Header>
+            <Header history={history}></Header>
             <div>
                 <div id="form-outer">
                 <h1 id="title">Survey</h1>

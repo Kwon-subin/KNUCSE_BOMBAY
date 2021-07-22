@@ -10,7 +10,7 @@ import Header from '../components/Header'
 import Cards2 from '../components/Cards2'
 import Footer from '../components/Footer'
 
-function SpeedMatch() {
+function SpeedMatch({history}) {
     const [data, setData] = useState([])
     let ismentor = window.localStorage.getItem('isMentor')
     useEffect(() => {
@@ -21,7 +21,7 @@ function SpeedMatch() {
       }, []);
     return (
         <div style={{backgroundColor:'#F3F3F3'}}>
-        <Header where='/login' button_text='로그인'></Header>
+        <Header history={history}></Header>
         <div style={{backgroundColor:'#FAEB78', color:'black', padding:'10px 15px'}}>
             <strong>일일 멘티를 찾습니다!</strong> 
             <p>다양한 주제로 하루 동안 멘토링 진행!</p>
