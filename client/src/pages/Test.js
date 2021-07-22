@@ -5,17 +5,16 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 
 function Test() {
-    let result;
-        const onFinish = () => {
-        let body={}
+    let ismentor = window.localStorage.getItem('isMentor')
+    const onFinish = () => {
+        let body = {}
         body['uid'] = window.localStorage.getItem('uid')
         // console.log(body)
         axios.post('/user/whoIs', body
-        ).then(function(res){
-            console.log(res)
-            if(res.data){
-                result = res.data
-            }else{
+        ).then(function (res) {
+            if (res.data) {
+                alert(res.data)
+            } else {
                 alert('실패')
             }
         })
@@ -32,12 +31,14 @@ function Test() {
                     멘토 - 멘티 활동은 2021.08.10 부터 진행합니다.
                 </div>
                     <Button onClick={onFinish}>매칭 확인</Button>
-            </div>
             {
-                (result) && (
-                    <div>{result[0]}</div>
+                (ismentor === true) ? (
+                    <div style={{paddingTop:'50px', fontSize:'30px'}}> 지금 당신의 멘티를 확인하세요!</div>
+                ):(
+                    <div style={{paddingTop:'50px', fontSize:'30px'}}> 지금 당신의 멘토를 확인하세요!</div>
                 )
             }
+            </div>
             <Footer></Footer>
         </div>
         
