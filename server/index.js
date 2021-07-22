@@ -497,7 +497,7 @@ app.post('/user/whoIs', async (req, res) => {
         const posts1 = await Profile.find({_id :mentorId});
         var name = posts1[0].name
         console.log(name);
-        res.send(name[0]);
+        res.send(name);
     }
     else{
         var menteeId = posts[0].whoIsMentee;
