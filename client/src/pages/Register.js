@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
 import axios from 'axios'
 import 'antd/dist/antd.css';
 // import './index.css';
@@ -31,10 +30,8 @@ const residences = [
     value: 'F',
     label: 'IT대학',
     children: [
-      {value: 'computer',label: '컴퓨터학부', children:[
-          {value : 'comp', label : '심화컴퓨터전공'},
-          {value : 'glos', label : '글로벌SW융합전공'},
-      ]},
+      {value: 'computer',label: '컴퓨터학부(심컴)'}, 
+      {value: 'glosw',label: '컴퓨터학부(심컴)'}, 
       {value: 'eletronic',label: '전자공학부',},
       {value: 'mobie',label: '모바일공학과',},
     ],

@@ -81,7 +81,6 @@ app.post('/user/register', (req, res) => {
 
 // 번개모임 게시판 목록 보여주기
 app.get('/user/speedmatch', async (req, res) => {
-    console.log('sep')
     const posts = await Post.find({}).sort({"updated_at":1});
 
     if(posts) res.status(200)
@@ -89,21 +88,35 @@ app.get('/user/speedmatch', async (req, res) => {
     res.send({posts});
 })
 
+app.post('/user/speedmatch', async(req, res)=>{
+    const id = req.body.id
+    const posts = await (await Post.findById(id))
+    const count = posts.count+1
+    await Post.findByIdAndUpdate(id, {$addToSet:{"mentee" : req.body.mentee}}, function(err, docs){
+    })
+    await Post.findByIdAndUpdate(id, {"count":count}, function(err, docs){
+    })
+
+    res.send(true)
+})
+
 // 번개모임 게시판 글 작성
 app.post('/user/newPost', async (req, res) => {
 
-    const {uid} = req.session.account;
+    const uid = req.body.uid;
     const title = req.body.title;
     const content = req.body.content;
-
-    try {
-        db.Profile.insertOne({
-            "author" : uid, "title" : title, "content" : content
-        })
-        return res.send(true);
-    } catch (e) {
-        return res.send(false);
+    const body = {
+        "author" : uid, "title" : title, "content" : content
     }
+    Post.create(body, (err, user) =>{
+        if(err){
+            console.log(err)
+            res.send(false)
+        }
+        return res.send(true)
+    })
+    
     
 })
 

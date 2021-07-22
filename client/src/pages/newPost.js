@@ -7,7 +7,7 @@ import { Form, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css'
 
-function NewPost(history) {
+function NewPost({history}) {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
 
@@ -19,6 +19,7 @@ function NewPost(history) {
     }
     const onFinish = () => {
         let body = {
+            uid : window.localStorage.getItem('uid'),
             title : title,
             content : content
         }
@@ -26,10 +27,11 @@ function NewPost(history) {
         axios.post('/user/newpost', body
         ).then(function (res){
           console.log(res)
-          if(res.status===200){
+          if(res.data){
             alert('hello')
             history.replace('/speedmatch')
           }else{
+              console.log(res.data)
             alert('작성에 실패했습니다.')
           }
         });

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import { FormOutlined } from '@ant-design/icons';
 import {Button} from 'antd'
@@ -9,17 +9,16 @@ import './index.css'
 import Header from '../components/Header'
 import Cards2 from '../components/Cards2'
 import Footer from '../components/Footer'
+
 function SpeedMatch() {
-    let posts;
-    axios.get('/user/speedmatch').then(function(res){
-        console.log('start')
-        if(res.status===200){
-            posts = res.data;
-            console.log(posts)
-        }else{
-            posts=[]
-        }
-    })
+    const [data, setData] = useState([])
+   
+    useEffect(() => {
+        axios
+          .get('/user/speedmatch')
+          .then(({ data }) => setData(data.posts))
+          .catch((err) => {});
+      }, []);
     return (
         <div style={{backgroundColor:'#F3F3F3'}}>
         <Header where='/login' button_text='로그인'></Header>
@@ -34,11 +33,9 @@ function SpeedMatch() {
             </Link>
         </div>
         <div className='smallBox' style={{clear:'both', padding:'20px'}}>
-            <Cards2 btntext='더 알아보기' ></Cards2>
-            <Cards2 btntext='더 알아보기' ></Cards2>
-            <Cards2 btntext='더 알아보기' ></Cards2>
-            <Cards2 btntext='더 알아보기' ></Cards2>
-
+            {data.map((item)=>(
+                <Cards2 title={item.title} content={item.content} num={item.count} btntext='참여하기' goto='/user/speed' ids={item._id}></Cards2>
+            ))}
         </div>
         <Footer></Footer>
         </div>
