@@ -11,6 +11,23 @@ db.once('open', function() {
 });
 mongoose.connect("mongodb+srv://subin:qls1256@bombay.gcd0b.mongodb.net/bombay?retryWrites=true&w=majority");
 
+
+exports.sensortiveIn = function(req, res, id, _priority, _m_department, _m_age, _m_gender) {
+app.post('/')
+  try {
+    db.Profile.updateOne({_id : id}, { $addToSet: {"isMentor" : _isMentor}} );
+    db.Profile.updateOne({_id : id}, { $addToSet: {"priority" : _priority}} );
+    db.Profile.updateOne({_id : id}, { $addToSet: {"m_department" : _m_department}} );
+    db.Profile.updateOne({_id : id}, { $addToSet: {"m_age" : _m_age}} );
+    db.Profile.updateOne({_id : id}, { $addToSet: {"m_gender" : _m_gender}} );
+    return res.send(true);
+} catch (e) {
+    return res.send(false);
+}
+
+var mongoose = require('mongoose'),
+    Profile = require('../models/match.js');//값 가져옴
+
 /* Create a profile */
 exports.create = function(req, res) {
 
@@ -74,7 +91,7 @@ exports.delete = function(req, res) {
 
 /* Retreive all the directory profiles, sorted alphabetically by profile code */
 exports.list = function(req, res) {
-  Profile.find({}, null, {sort: {code: 1}}, function(err, obj){
+  Profile.find({}, null, {sort: {code: 1}}, function(_err, obj){
     res.json(obj);
   });
 };    
@@ -90,18 +107,52 @@ exports.listingByID = function(req, res, next, id) {
   });
 };
 
-exports.sensortiveIn = function(req, res, id, _priority, _m_department, _m_age, _m_gender) {
-  try {
-    db.Profile.updateOne({_id : id}, { $addToSet: {"isMentor" : _isMentor}} );
-    db.Profile.updateOne({_id : id}, { $addToSet: {"priority" : _priority}} );
-    db.Profile.updateOne({_id : id}, { $addToSet: {"m_department" : _m_department}} );
-    db.Profile.updateOne({_id : id}, { $addToSet: {"m_age" : _m_age}} );
-    db.Profile.updateOne({_id : id}, { $addToSet: {"m_gender" : _m_gender}} );
-    return res.send(true);
-} catch (e) {
-    return res.send(false);
-}
+
+
+exports.sensortiveIn = function(req, res, id, _isMentor, _priority, _m_department, _m_age, _m_gender) {
+  await profile.findByIdAndUpdate(id, {"isMentor" : _isMentor}, function(err, docs){
+    if (err){
+    console.log(err)
+    }
+    else{
+      console.log("Updated User : ", docs);
+    }
+  });
+  await Profile.findByIdAndUpdate(id, {"priority" : _priority}, function(err, docs){
+    if (err){
+      console.log(err)
+      }
+      else{
+        console.log("Updated User : ", docs);
+      }
+  });
+  await Profile.findByIdAndUpdate(id, {"m_department" : _m_department}, function(err, docs){
+    if (err){
+      console.log(err)
+      }
+      else{
+        console.log("Updated User : ", docs);
+      }
+  });
+  await Profile.findByIdAndUpdate(id, {"m_age" : _m_age}, function(err, docs){
+    if (err){
+      console.log(err)
+      }
+      else{
+        console.log("Updated User : ", docs);
+      }
+  });
+  await Profile.findByIdAndUpdate(id, {"m_gende" : _m_gende}, function(err, docs){
+    if (err){
+      console.log(err)
+      }
+      else{
+        console.log("Updated User : ", docs);
+      }
+  });
 };
+
+
 
 function scoreMatch (A) {
 	var score = 0;
@@ -133,7 +184,13 @@ function checkMatches (A, B) {//A=mentee B=mentor
 	return D;
 }
 
+
 const match = async function(req, res) {
+
+exports.match = function(req, res) {
+
+exports.match = function(req, res) {
+
 //isMentor,priority,m_department, m_age, m_gender
   var matchresult = {
     mento : '',
@@ -228,15 +285,4 @@ const match = async function(req, res) {
   }
 };
 
-exports.whoIsMyMentor = async function(re, menteeId) {
-  const posts = await Profile.find({_id :menteeId});
-  return res.send(posts.whoIsMentor);
-
-};
-
-exports.whoIsMyMentee = async function(re, mentorId) {
-  const posts = await Profile.find({_id :mentorId});
-  return res.send(posts.whoIsMentee);
-
-};
 

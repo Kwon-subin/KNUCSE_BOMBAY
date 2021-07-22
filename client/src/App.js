@@ -13,6 +13,7 @@ import Register from './pages/Register'
 import Matching from './pages/MatchPage/Matching';
 import SpeedMatch from './pages/SpeedMatch';
 import Mentor from './pages/MatchPage/Mentor';
+import Mentee from './pages/MatchPage/Mentee';
 import Mypage from './pages/Mypage';
 import Notice from './pages/Notice';
 import NewPost from './pages/newPost';
@@ -30,6 +31,7 @@ function App() {
         <Route path='/notice' component={Notice} exact/>
         <Route path='/match' component={Matching} exact/>
         <Route path='/find' component={Mentor} exact/>
+        <Route path='/find2' component={Mentee} exact/>
         <Route path='/newPost' component={NewPost} exact/>
         <Route path='/speedmatch' component={SpeedMatch} exact/>
         <Route path='/mypage' component={Mypage} exact/>
