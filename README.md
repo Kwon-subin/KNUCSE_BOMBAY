@@ -30,6 +30,16 @@
 - 📽[데모영상](#데모영상)
 --------------------------------------------
 ## 🖥실행방법
+1. git clone/download
+2. `cd KNUCSE_BOMBAY` (해당 폴더로 이동)
+3. `npm install`
+4. front를 실행할 console, back을 실행할 console 따로 켜서 아래 명령어 수행
+> - Front(client) 실행 방법
+> >  + `cd client` (client 폴더로 이동)
+> >  + `npm install` (실행 시 필요한 모듈 다운)
+> >  + `npm run start`
+> - Back(server) 실행 방법
+> >  + `npm run`
 
 ## 😷개발배경
 <p align="center"><img src="/corona.png" width="40%" height="30%" alt="TitleLogo"></img></p>
@@ -74,7 +84,8 @@
  - [x] 일일멘토링 신청/참여 게시판(글 작성, 참가 신청) 
  - [x] 메인화면 
  - [ ] 채팅창(front 완료, 동작X)
- - [ ] 공지사항 게시판, mypage(front 완료, 동작X)
+ - [ ] 공지사항 게시판(front 완료, 동작X)
+ - [ ] mypage(참여횟수 동작 x)
 
  <br/>
 
