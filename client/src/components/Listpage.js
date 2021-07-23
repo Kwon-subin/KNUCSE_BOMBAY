@@ -35,7 +35,7 @@ function Listpage({post}) {
         />
       </List.Item>
     )}
-  />,
+  />
     </div>
   )
 }

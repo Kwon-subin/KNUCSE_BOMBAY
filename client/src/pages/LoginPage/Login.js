@@ -34,6 +34,7 @@ function Login({history}) {
           message.info('로그인 성공!');
           window.localStorage.setItem('uid', res.data.uid)
           window.localStorage.setItem('isMentor', res.data.isMentor)
+          window.localStorage.setItem('uname', res.data.name)
           history.replace('/')
           
         } else {

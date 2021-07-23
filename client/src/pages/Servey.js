@@ -4,8 +4,11 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import './Servey.css';
 
-
 function Servey({history}) {
+    function servsubmit(){
+        alert('제출해주셔서 감사합니다!')
+        history.push('/')
+    }
     return (
         <div>
             <Header history={history}></Header>
@@ -77,7 +80,7 @@ function Servey({history}) {
                             </div>
                         <div className="rightTab">
                     <textarea id="comments" name="comment" placeholder="Write something.." ></textarea>  
-                        <button id="submit" type="submit">Submit</button>        
+                        <button id="submit" onClick={servsubmit}>Submit</button>        
                     </div>
                     </div>
                     </div>

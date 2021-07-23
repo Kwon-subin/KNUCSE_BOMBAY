@@ -15,7 +15,7 @@ function Test() {
             if (res.data) {
                 alert(res.data)
             } else {
-                alert('실패')
+                alert('정보를 불러오는데 실패하였습니다')
             }
         })
     };

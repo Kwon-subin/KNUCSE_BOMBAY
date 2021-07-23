@@ -75,11 +75,12 @@ const Register = ({history}) => {
   const [form] = Form.useForm();
 
   const onFinish = (body) => {
+  if(body.grade > 1) body['isMentor'] = true
   axios.post('/user/register', body
   ).then(function (res){
     console.log(res)
     if(res.status===200){
-      alert('hello')
+      alert('환영합니다!')
       history.replace('/')
     }else{
       alert('중복된 email이 존재합니다.')

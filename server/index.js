@@ -54,6 +54,9 @@ app.post('/user/login', async (req, res) => {
     
     req.session.uid = user._id
     req.session.isMentor = user.isMentor
+    req.session.name = user.name
+
+    // console.log(req.session)
 
 
     return res.send(req.session);
