@@ -9,6 +9,9 @@ function Cards2({btntext, title, content, num, goto, ids}) {
             if(window.localStorage.getItem('isMentor')==='true'){
                 alert('멘토는 신청이 불가능합니다.')
                 return
+            }else if(!window.localStorage.getItem('isMentor')){
+                alert('로그인을 해 주세요')
+                return
             }
             if(!window.confirm('신청하시겠습니까?')) return;
             const url = '/user/speedmatch'

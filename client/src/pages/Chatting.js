@@ -9,6 +9,10 @@ import { Popover, Button } from 'antd';
 import { NotificationOutlined } from '@ant-design/icons';
 
 function Chatting({history}) {
+    if(!window.localStorage.getItem('uid')){
+        alert('로그인시 사용 가능한 기능입니다.')
+        history.push('/')
+    }
     return (
         <div>
             <Header history={history}></Header>

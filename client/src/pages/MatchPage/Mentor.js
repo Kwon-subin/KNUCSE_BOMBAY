@@ -23,6 +23,11 @@ const Mentor = ({history}) => {
     const [form] = Form.useForm();
     const [state, setState] = useState(true);
 
+    if(!window.localStorage.getItem('uid')){
+        alert('로그인시 사용 가능한 기능입니다.')
+        history.push('/')
+    }
+
     const onFinish = (body) => {
         body['uid'] = window.localStorage.getItem('uid')
         console.log(body)

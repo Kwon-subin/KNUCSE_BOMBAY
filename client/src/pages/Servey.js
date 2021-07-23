@@ -5,6 +5,10 @@ import Footer from '../components/Footer'
 import './Servey.css';
 
 function Servey({history}) {
+    if(!window.localStorage.getItem('uid')){
+        alert('로그인시 사용 가능한 기능입니다.')
+        history.push('/')
+    }
     function servsubmit(){
         alert('제출해주셔서 감사합니다!')
         history.push('/')

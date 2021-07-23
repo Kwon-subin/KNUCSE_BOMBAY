@@ -4,7 +4,11 @@ import { Button } from 'antd';
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
-function Test() {
+function Test({history}) {
+    if(!window.localStorage.getItem('uid')){
+        alert('로그인시 사용 가능한 기능입니다.')
+        history.push('/')
+    }
     let ismentor = window.localStorage.getItem('isMentor')
     const onFinish = () => {
         let body = {}
@@ -22,7 +26,7 @@ function Test() {
 
     return (
         <div>
-            <Header></Header>
+            <Header history={history}></Header>
             <div className="testWrapper">
                 <div className="testTitle">
                     멘토 - 멘티 결과 매칭 보기
