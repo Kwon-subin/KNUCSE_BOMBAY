@@ -24,15 +24,15 @@ function Test() {
         <div>
             <Header></Header>
             <div className="testWrapper">
-                <div class="testTitle">
+                <div className="testTitle">
                     멘토 - 멘티 결과 매칭 보기
                 </div>
-                <div class="testSub">
+                <div className="testSub">
                     멘토 - 멘티 활동은 2021.08.10 부터 진행합니다.
                 </div>
                     <Button onClick={onFinish}>매칭 확인</Button>
             {
-                (ismentor === true) ? (
+                (ismentor === 'true') ? (
                     <div style={{paddingTop:'50px', fontSize:'30px'}}> 지금 당신의 멘티를 확인하세요!</div>
                 ):(
                     <div style={{paddingTop:'50px', fontSize:'30px'}}> 지금 당신의 멘토를 확인하세요!</div>

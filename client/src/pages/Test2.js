@@ -1,7 +1,7 @@
-import React, {useState} from 'react'
+import React from 'react'
 import './index.css'
 import 'antd/dist/antd.css';
- import { Form, Radio, InputNumber, Button } from 'antd';
+ import { Form, Button } from 'antd';
  import axios from 'axios'
  const tailFormItemLayout = {
      wrapperCol: {
@@ -18,7 +18,6 @@ import 'antd/dist/antd.css';
 
  function Test2() {
      const [form] = Form.useForm();
-     const [state, setState] = useState(true);
 
      const onFinish = (body) => {
          body['uid'] = window.localStorage.getItem('uid')
@@ -34,11 +33,6 @@ import 'antd/dist/antd.css';
              }
          })
      };
-
-     function toggle() {
-         setState(!state);
-     }
-
 
       return (
         <submitwrapper>

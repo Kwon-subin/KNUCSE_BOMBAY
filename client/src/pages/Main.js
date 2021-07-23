@@ -76,7 +76,7 @@ function Main({ history }) {
                 <div className="gird field">
                     <Space size={[16, 16]} wrap>
                         {data.map((item) => (
-                            <Cards2 className="speedycard"title={item.title} content={item.content} num={item.count} btntext='참여하기' goto='/user/speed' ids={item._id} ></Cards2>
+                            <Cards2 key={item._id} className="speedycard"title={item.title} content={item.content} num={item.count} btntext='참여하기' goto='/user/speed' ids={item._id} ></Cards2>
                         ))}
                     </Space>
                 </div>

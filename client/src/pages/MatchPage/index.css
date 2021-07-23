@@ -3,7 +3,7 @@
     font-size: 35px;
 }
 
-submitwrapper{
+.submitWrapper{
     margin-top: 30px;
     display: flex;
     flex-direction: column;

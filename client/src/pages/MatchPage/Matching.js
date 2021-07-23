@@ -7,7 +7,7 @@ import Cards from '../../components/Cards'
 
 function Matching({history}) {
     let goto
-    if(window.localStorage.getItem('isMentor')===true) goto="find"
+    if(window.localStorage.getItem('isMentor')==='true') goto="find"
     else goto="find2"
     return (
         <>

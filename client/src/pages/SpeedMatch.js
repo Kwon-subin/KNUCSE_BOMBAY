@@ -40,7 +40,7 @@ function SpeedMatch({history}) {
         }
         <Space size={[16, 16]} wrap style={{clear:'both', padding:'20px', margin:'auto', minHeight:'495px'}}>
             {data.map((item)=>(
-                <Cards2 className="speedycard" title={item.title} content={item.content} num={item.count} btntext='참여하기' goto='/user/speed' ids={item._id} ></Cards2>
+                <Cards2 key={item._id} className="speedycard" title={item.title} content={item.content} num={item.count} btntext='참여하기' goto='/user/speed' ids={item._id} ></Cards2>
         ))}       
         </Space>
 
